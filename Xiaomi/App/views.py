@@ -7,3 +7,4 @@ from App.models import Index
 def index(request):
     menus = Index.objects.all()
     return render(request, "index.html", context={"menus": menus})
+	
