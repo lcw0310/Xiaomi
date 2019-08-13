@@ -16,9 +16,9 @@
         display: none
     }</style>
     <title>小米有品</title>
-    <script src="/static/js/hm.js"></script>
-    <script src="/static/js/gettimestamp"></script>
-    <script type="text/javascript" src="/static/js/StatInfo.js"></script>
+    <script src={{ "/static/js/hm.js" }}></script>
+    <script src={{ "/static/js/gettimestamp" }}></script>
+    <script type="text/javascript" src={{ "/static/js/StatInfo.js" }}></script>
     <script>window.zeptoCbs = [], window.registerAfterZepto = function (e) {
         zeptoCbs.push(e)
     }</script>
@@ -33,7 +33,7 @@
         window.WebpSupport = 2 === webP.height
     }</script>
     <link href="{{ '/static/css/main.20b21653.css' }}" rel="stylesheet">
-    <script type="text/javascript" charset="utf-8" async="" src={{ "/static/js/home.e85ae27a.chunk.js" }}></script>
+    <script type="text/javascript" charset="utf-8" async src={{ "/static/js/home.e85ae27a.chunk.js" }}></script>
 </head>
 <body>
 <noscript>You need to enable JavaScript to run.</noscript>
@@ -97,17 +97,19 @@
         <div class="banner-nav">
             <div class="nav-container">
                 <ul class="nav-list">
-                     {% for lord_menu in menus %}
-                         {% for attached_menu in menus %}
-                         {% if lord_menu.id == attached_menu.mid %}
-                    <li class="nav-item ">
-                        <span><a data-src="/goodsbycategory?firstId=446&amp;secondId=446&amp;title=%E6%9C%89%E5%93%81%E6%8E%A8%E8%8D%90">{{ lord_menu.menu }}</a></span>
-                        <span>/</span>
-                        <span><a data-src="/goodsbycategory?firstId=115&amp;secondId=115&amp;title=%E5%AE%B6%E7%94%A8%E7%94%B5%E5%99%A8">{{ attached_menu.menu }}</a></span>
-                    </li>
-                         {% endif %}
-                         {% endfor %}
-                {% endfor %}
+                    {% for lord_menu in menus %}
+                        {% for attached_menu in menus %}
+                            {% if lord_menu.id == attached_menu.mid %}
+                                <li class="nav-item ">
+                                    <span><a
+                                            data-src="/goodsbycategory?firstId=446&amp;secondId=446&amp;title=%E6%9C%89%E5%93%81%E6%8E%A8%E8%8D%90">{{ lord_menu.menu }}</a></span>
+                                    <span>/</span>
+                                    <span><a
+                                            data-src="/goodsbycategory?firstId=115&amp;secondId=115&amp;title=%E5%AE%B6%E7%94%A8%E7%94%B5%E5%99%A8">{{ attached_menu.menu }}</a></span>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
                 </ul>
 
                 <div class="nav-detail ">
@@ -232,15 +234,16 @@
                         <div class="swiper-container swiper-container-horizontal">
                             <div class="swiper-wrapper"
                                  style="transform: translate3d(-4295px, 0px, 0px); transition-duration: 0ms;">
-                            {% for big_image in menus %}
-                                <a href="https://m.youpin.mi.com/w/mifansday?_rt=weex&amp;pageid=894" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="swiper-slide swipe-item m-tag-a swiper-slide-duplicate swiper-slide-duplicate-next"
-                                    data-swiper-slide-index="5" style="width: 859px;"><img
-                                    data-src="{{ big_image.big_image }}?id=&amp;w=1080&amp;h=450"
-                                    alt="" src="/static/image/9692fcfe86fcf02907adf5d4c8c32360.jpg"></a>
+                                {% for big_image in menus %}
+                                    <a href="https://m.youpin.mi.com/w/mifansday?_rt=weex&amp;pageid=894"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="swiper-slide swipe-item m-tag-a swiper-slide-duplicate swiper-slide-duplicate-next"
+                                       data-swiper-slide-index="5" style="width: 859px;"><img
+                                            data-src="{{ big_image.big_image }}?id=&amp;w=1080&amp;h=450"
+                                            alt="" src="/static/image/9692fcfe86fcf02907adf5d4c8c32360.jpg"></a>
                                 {% endfor %}
-                               </div>
+                            </div>
                             <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span
                                     class="swiper-pagination-bullet"></span><span
                                     class="swiper-pagination-bullet"></span><span
@@ -263,22 +266,24 @@
                         <div class="swiper-wrapper">
                             {% for title in menus %}
                                 {% if title.id == title.plate_id %}
-                            <div class="swiper-slide swiper-slide-active" style="width: 266.25px; margin-right: 5px;">
-                                <div class="m-goods-item-container new-item-container first pro-item-sec margin-left-0"
-                                     data-src="/detail?gid=110498" data-target="_blank">
-                                    <div class="small-item-img">
-                                        <div class="m-placeholder" style="width: 266px; height: 266px;">
-                                            <img src="{{ title.image }}" alt="邦德富士达27速铝合金山地自行车" style="width: 266px; height: 266px;">
+                                    <div class="swiper-slide swiper-slide-active"
+                                         style="width: 266.25px; margin-right: 5px;">
+                                        <div class="m-goods-item-container new-item-container first pro-item-sec margin-left-0"
+                                             data-src="/detail?gid=110498" data-target="_blank">
+                                            <div class="small-item-img">
+                                                <div class="m-placeholder" style="width: 266px; height: 266px;">
+                                                    <img src="{{ title.image }}" alt="邦德富士达27速铝合金山地自行车"
+                                                         style="width: 266px; height: 266px;">
+                                                </div>
+                                            </div>
+                                            <div class="m-goods-pro-tag-con">{{ title.select }}</div>
+                                            <div class="m-goods-common-box"><p class="pro-info" title="黑胶唱片机PS-LX310BT">
+                                                {{ title.title }}</p>
+                                                <p class="pro-desc" title="一键自动播放 聆听黑胶质感声音">{{ title.content }}</p>
+                                                <p class="pro-price"><span class="pro-unit">¥</span><span
+                                                        class="m-num">{{ title.price }}</span></p></div>
                                         </div>
                                     </div>
-                                    <div class="m-goods-pro-tag-con">{{ title.select }}</div>
-                                    <div class="m-goods-common-box"><p class="pro-info" title="黑胶唱片机PS-LX310BT">
-                                        {{ title.title }}</p>
-                                        <p class="pro-desc" title="一键自动播放 聆听黑胶质感声音">{{ title.content }}</p>
-                                        <p class="pro-price"><span class="pro-unit">¥</span><span
-                                                class="m-num">{{ title.price }}</span></p></div>
-                                </div>
-                            </div>
                                 {% endif %}
                             {% endfor %}
                         </div>
@@ -294,85 +299,35 @@
                 <div class="m-sec-main mt1">
                     <div class="swiper-container swiper-container-horizontal">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide swiper-slide-active" style="width: 266.25px; margin-right: 5px;">
-                                <div class="m-goods-item-container new-item-container first pro-item-sec margin-left-0"
-                                     data-src="/detail?gid=105807" data-target="_blank">
-                                    <div class="small-item-img">
-                                        <div class="m-placeholder" style="width: 266px; height: 266px;"></div>
+
+
+                            {% for plate in menus %}
+                                {% if plate.plate_id >= 7 and plate.plate_id < 12 %}
+                                    <div class="swiper-slide" style="width: 266.25px; margin-right: 5px;">
+                                        <div class="m-goods-item-container new-item-container  pro-item-sec margin-left-0"
+                                             data-src="/detail?gid=102607" data-target="_blank">
+                                            <div class="small-item-img">
+                                                <div class="m-product-image-container undefined"
+                                                     style="width: 266px; height: 266px;"
+                                                     data-src="{{ plate.image }}">
+                                                    <div class="img-container" style="width: 266px; height: 266px;"><img
+                                                            src="{{ plate.image }}"
+                                                            data-src="{{ plate.image }}"
+                                                            alt="云米互联网冰箱21Face 450L"
+                                                            style="width: 266px; height: 266px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="m-goods-pro-tag-con">{{ plate.select }}</div>
+                                            <div class="m-goods-common-box"><p class="pro-info"
+                                                                               title="云米互联网冰箱21Face 450L">{{ plate.title }}</p>
+                                                <p class="pro-desc"
+                                                   title="AI语音控制，变频压缩机，风冷无霜，草本杀菌">{{ plate.content }}</p>
+                                                <p class="pro-price"><span class="pro-unit">¥</span><span
+                                                        class="m-num">{{ plate.price }}</span></p></div>
+                                        </div>
                                     </div>
-                                    <div class="m-goods-common-box"><p class="pro-info" title="云米互联网冰箱 456L">云米互联网冰箱
-                                        456L</p>
-                                        <p class="pro-desc" title="456L大容量，节能静音，360°风冷保鲜，智能感温调节，A">
-                                            456L大容量，节能静音，360°风...</p>
-                                        <p class="pro-price"><span class="pro-unit">¥</span><span
-                                                class="m-num">1999</span></p></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide-next" style="width: 266.25px; margin-right: 5px;">
-                                <div class="m-goods-item-container new-item-container  pro-item-sec margin-left-0"
-                                     data-src="/detail?gid=107304" data-target="_blank">
-                                    <div class="small-item-img">
-                                        <div class="m-placeholder" style="width: 266px; height: 266px;"></div>
-                                    </div>
-                                    <div class="m-goods-common-box"><p class="pro-info" title="双重防蓝光 日常女款 百搭玳瑁">双重防蓝光
-                                        日常女款 百搭玳瑁...</p>
-                                        <p class="pro-desc" title="双重防护，树脂镜片，20%阻隔率，防紫外线">双重防护，树脂镜片，20%阻隔率...</p>
-                                        <p class="pro-price"><span class="pro-unit">¥</span><span
-                                                class="m-num">179</span></p></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 266.25px; margin-right: 5px;">
-                                <div class="m-goods-item-container new-item-container  pro-item-sec margin-left-0"
-                                     data-src="/detail?gid=104446" data-target="_blank">
-                                    <div class="small-item-img">
-                                        <div class="m-placeholder" style="width: 266px; height: 266px;"></div>
-                                    </div>
-                                    <div class="m-goods-common-box"><p class="pro-info" title="素士无线便携冲牙器 ">
-                                        素士无线便携冲牙器 </p>
-                                        <p class="pro-desc" title="餐后冲牙,冲走齿间残渣,牙套清洁搭档,无线便携">餐后冲牙,冲走齿间残渣,牙套清...</p>
-                                        <p class="pro-price"><span class="pro-unit">¥</span><span
-                                                class="m-num">189</span></p></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 266.25px; margin-right: 5px;">
-                                <div class="m-goods-item-container new-item-container  pro-item-sec margin-left-0"
-                                     data-src="/detail?gid=106091" data-target="_blank">
-                                    <div class="small-item-img">
-                                        <div class="m-placeholder" style="width: 266px; height: 266px;"></div>
-                                    </div>
-                                    <div class="m-goods-common-box"><p class="pro-info" title="米家空调C1 一级能效">米家空调C1
-                                        一级能效</p>
-                                        <p class="pro-desc" title="1.5匹，全直流变频，高效制冷/热">1.5匹，全直流变频，高效制冷/热</p>
-                                        <p class="pro-price"><span class="pro-unit">¥</span><span
-                                                class="m-num">2399</span></p></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 266.25px; margin-right: 5px;">
-                                <div class="m-goods-item-container new-item-container first pro-item-sec margin-left-0"
-                                     data-src="/detail?gid=100400" data-target="_blank">
-                                    <div class="small-item-img">
-                                        <div class="m-placeholder" style="width: 266px; height: 266px;"></div>
-                                    </div>
-                                    <div class="m-goods-pro-tag-con">3色可选</div>
-                                    <div class="m-goods-common-box"><p class="pro-info" title=" 石头扫地机 扫拖一体"> 石头扫地机
-                                        扫拖一体</p>
-                                        <p class="pro-desc" title="米家扫地机器人团队出品，传感器升级，智能规划，扫拖一体">米家扫地机器人团队出品，传感...</p>
-                                        <p class="pro-price"><span class="pro-unit">¥</span><span
-                                                class="m-num">2399</span><span class="pro-flag">起</span></p></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 266.25px; margin-right: 5px;">
-                                <div class="m-goods-item-container new-item-container  pro-item-sec margin-left-0"
-                                     data-src="/detail?gid=105377" data-target="_blank">
-                                    <div class="small-item-img">
-                                        <div class="m-placeholder" style="width: 266px; height: 266px;"></div>
-                                    </div>
-                                    <div class="m-goods-common-box"><p class="pro-info" title="小米米家智能门锁">小米米家智能门锁</p>
-                                        <p class="pro-desc" title="C级智能锁芯，3D活体指纹，6大开锁方式，智能联动">C级智能锁芯，3D活体指纹，6大...</p>
-                                        <p class="pro-price"><span class="pro-unit">¥</span><span
-                                                class="m-num">1199</span></p></div>
-                                </div>
-                            </div>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                         <div class="swiper-button-next m-icons m-icons-next-hover"></div>
                         <div class="swiper-button-prev m-icons m-icons-forward-hover swiper-button-disabled"></div>
@@ -384,134 +339,32 @@
             <div class="container">
                 <div class="h-sec-top clearfix"><h2 class="h-subTit">专属推荐<span></span></h2></div>
                 <div class="m-product-list  clearfix">
-                    <div class="m-goods-item-container first pro-item-category" data-src="/detail?gid=105565"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
+                    {% for plate in menus %}
+                        {% if plate.plate_id >= 13 %}
+                            <div class="m-goods-item-container first pro-item-category" data-src="/detail?gid=105565"
+                                 data-target="_blank" style="margin: 2px">
+                                <div class="category-img-container">
+                                    <div class="product-img">
+                                        <div class="m-placeholder"
+                                             style="padding: 45px 70px 28px; width: 124px; height: 125px;">
+                                            <img src="{{ plate.image }}"
+                                                 data-src="{{ plate.image }}"
+                                                 alt="智能音箱伴侣（小爱触屏音箱版）"
+                                                 style="height: 125px; width: 125px; margin-left: -0.5px;">
+                                        </div>
+                                    </div>
+                                    <p class="pro-desc">{{ plate.content }}</p></div>
+                                <div class="category-box">
+{#                                    <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"#}
+{#                                                                              style="background-color: rgb(217, 107, 108);">特价</span><span#}
+{#                                            class="common-tag common-tag-text"#}
+{#                                            style="background-color: rgb(217, 107, 108);">加价购</span></div>#}
+                                    <p class="pro-info" title="突破二位转换器">{{ plate.title }}</p>
+                                    <p class="pro-price"><span class="pro-unit">¥</span><span
+                                            class="m-num">{{ plate.price }}</span></p></div>
                             </div>
-                            <p class="pro-desc">无线转换，新国标组合孔，750℃...</p></div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                                                      style="background-color: rgb(217, 107, 108);">特价</span><span
-                                    class="common-tag common-tag-text"
-                                    style="background-color: rgb(217, 107, 108);">加价购</span></div>
-                            <p class="pro-info" title="突破二位转换器">突破二位转换器</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">27</span><span
-                                    class="pro-flag">起</span></p></div>
-                    </div>
-                    <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=103818"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
-                            </div>
-                            <p class="pro-desc">6位国标组合孔+3个USB接口，圆...</p></div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                                                      style="background-color: rgb(217, 107, 108);">限时购</span><span
-                                    class="common-tag common-tag-text"
-                                    style="background-color: rgb(217, 107, 108);">满件折</span></div>
-                            <p class="pro-info" title="突破防雷6位插线板 带USB">突破防雷6位插线板 带...</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">89</span><span
-                                    class="pro-flag">起</span></p></div>
-                    </div>
-                    <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=105568"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
-                            </div>
-                            <p class="pro-desc">全长约1.8米，新国标组合，750...</p></div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                                                      style="background-color: rgb(217, 107, 108);">特价</span><span
-                                    class="common-tag common-tag-text"
-                                    style="background-color: rgb(217, 107, 108);">加价购</span></div>
-                            <p class="pro-info" title="突破6位插线板">突破6位插线板</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">59</span><span
-                                    class="pro-flag">起</span></p></div>
-                    </div>
-                    <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=107720"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
-                            </div>
-                            <p class="pro-desc">14寸车型，三色可选，新国标3C...</p></div>
-                        <div class="m-goods-pro-tag-con">3色可选</div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"></div>
-                            <p class="pro-info" title="HIMO 电动自行车T1">HIMO 电动自行车T1</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">3699</span><span
-                                    class="pro-flag">起</span></p></div>
-                    </div>
-                    <div class="m-goods-item-container first pro-item-category" data-src="/detail?gid=109503"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
-                            </div>
-                            <p class="pro-desc">120°大角度泛光，IP65防水，美...</p></div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                                                      style="background-color: rgb(217, 107, 108);">特价</span>
-                            </div>
-                            <p class="pro-info" title="火星探索骑行前灯">火星探索骑行前灯</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">93.9</span></p>
-                        </div>
-                    </div>
-                    <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=108181"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
-                            </div>
-                            <p class="pro-desc">飞织鞋面，蜂巢透气鞋垫，高弹...</p></div>
-                        <div class="m-goods-pro-tag-con">2色可选</div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                                                      style="background-color: rgb(217, 107, 108);">特价</span>
-                            </div>
-                            <p class="pro-info" title="FREETIE飞织透气轻跑鞋">FREETIE飞织透气轻跑鞋...</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">89</span></p></div>
-                    </div>
-                    <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=100942"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
-                            </div>
-                            <p class="pro-desc">纯生牛乳无添加，澳洲进口荷斯...</p></div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                                                      style="background-color: rgb(217, 107, 108);">满减</span>
-                            </div>
-                            <p class="pro-info" title="认养一头牛 常温纯牛奶 两提装">认养一头牛 常温纯牛奶...</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">89</span><span
-                                    class="pro-flag">起</span></p></div>
-                    </div>
-                    <div class="m-goods-item-container  pro-item-category" data-src="/detail?gid=109221"
-                         data-target="_blank">
-                        <div class="category-img-container">
-                            <div class="product-img">
-                                <div class="m-placeholder"
-                                     style="padding: 45px 70px 28px; width: 124px; height: 125px;"></div>
-                            </div>
-                            <p class="pro-desc">茅台飞天，国货匠心，酿造高品...</p></div>
-                        <div class="category-box">
-                            <div class="m-goods-common-tag-con"></div>
-                            <p class="pro-info" title="贵州茅台飞天酒 酱香型白酒43度500ml单瓶/整箱装">贵州茅台飞天酒 酱香型...</p>
-                            <p class="pro-price"><span class="pro-unit">¥</span><span class="m-num">999</span><span
-                                    class="pro-flag">起</span></p></div>
-                    </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -563,6 +416,7 @@ var _hmt = _hmt || [];
     hm.src = src;
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
-})();</script>
+})();
+</script>
 <img src="/static/image/0.gif" style="display: none;"></body>
 </html>
