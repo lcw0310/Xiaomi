@@ -100,131 +100,52 @@
                     {% for lord_menu in menus %}
                         {% for attached_menu in menus %}
                             {% if lord_menu.id == attached_menu.mid %}
-                                <li class="nav-item ">
-                                    <span><a
-                                            data-src="/goodsbycategory?firstId=446&amp;secondId=446&amp;title=%E6%9C%89%E5%93%81%E6%8E%A8%E8%8D%90">{{ lord_menu.menu }}</a></span>
+                                <li class="nav-item " onmouseover="add({{ lord_menu.id }})" onmouseout="out(this)">
+                                    <span class="lor_menu"><a data-src="/goodsbycategory?firstId=446&amp;secondId=446&amp;" id="{{ lord_menu.id }}">{{ lord_menu.menu }}</a></span>
                                     <span>/</span>
-                                    <span><a
-                                            data-src="/goodsbycategory?firstId=115&amp;secondId=115&amp;title=%E5%AE%B6%E7%94%A8%E7%94%B5%E5%99%A8">{{ attached_menu.menu }}</a></span>
+                                    <span class="attached_menu"><a data-src="/goodsbycategory?firstId=115&amp;secondId=115&amp;" id="{{ attached_menu.mid }}">{{ attached_menu.menu }}</a></span>
                                 </li>
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
                 </ul>
-
-                <div class="nav-detail ">
-                    <div class="cate-detail-group"><p class="title">母婴亲子</p>
+                <div class="nav-detail">
+                    <div class="cate-detail-group">
+                        {% for lord in menus %}
+                            {% for attached in menus %}
+                            {% if lord.id == attached.mid %}
+                            <p id="{{ lord.id }}">{{ lord.menu }}</p>
+                            {% endif %}
+                                {% endfor %}
+                    {% endfor %}
+                        {% for p in title %}
                         <ul class="cate-detail-list">
                             <li class="m-tag-a"
                                 data-src="/goodsbycategory?firstId=155&amp;secondId=990&amp;title=%E5%A9%B4%E7%AB%A5%E4%B8%8A%E6%96%B0">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/bb0c220897fbbb2aa3b0212fc54cec73.jpg?w=480&amp;h=480"
-                                     src="/static/image/bb0c220897fbbb2aa3b0212fc54cec73.jpg"
-                                     alt="婴童上新"><span>婴童上新</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=1441&amp;title=199%E5%87%8F100"><img
-                                    data-src="https://img.youpin.mi-img.com/miio_album_pics/2aa163a2c6363e277bc5aec61004eda4.jpg?w=480&amp;h=480"
-                                    src="/static/image/2aa163a2c6363e277bc5aec61004eda4.jpg"
-                                    alt="199减100"><span>199减100</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=156&amp;title=%E7%8E%A9%E5%85%B7">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/41098d1317639f562131f752e15c79f4.png?_s=ks3"
-                                     src="/static/image/41098d1317639f562131f752e15c79f4.png" alt="玩具"><span>玩具</span>
-                            </li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=309&amp;title=%E5%87%BA%E8%A1%8C">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/03dbb2172557faa32a59a5a5a1ffce61.jpg?_s=ks3"
-                                     src="/static/image/03dbb2172557faa32a59a5a5a1ffce61.jpg" alt="出行"><span>出行</span>
-                            </li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=1111&amp;title=%E5%A5%B6%E7%B2%89%E8%BE%85%E9%A3%9F">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/1b82a9f303e11edca4dd723966fc818f.jpg?w=480&amp;h=480"
-                                     src="/static/image/1b82a9f303e11edca4dd723966fc818f.jpg"
-                                     alt="奶粉辅食"><span>奶粉辅食</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=1163&amp;title=%E5%9B%BE%E4%B9%A6%E7%BB%98%E6%9C%AC">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/39a788a11c9f176821a1d8d06a375476.jpg?_s=ks3"
-                                     src="/static/image/39a788a11c9f176821a1d8d06a375476.jpg"
-                                     alt="图书绘本"><span>图书绘本</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=734&amp;title=%E5%A9%B4%E7%AB%A5%E6%9C%8D%E9%A5%B0">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/1723bc0b24b04acfc85d2c32ddd66160.png?_s=ks3"
-                                     src="/static/image/1723bc0b24b04acfc85d2c32ddd66160.png"
-                                     alt="婴童服饰"><span>婴童服饰</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=157&amp;title=%E5%84%BF%E7%AB%A5%E7%A9%BF%E6%88%B4">
-                                <img data-src="https://img.youpin.mi-img.com/goods/shop_039a9eec07f563d85d55aa6e80907627.png?_s=ks3"
-                                     src="/static/image/shop_039a9eec07f563d85d55aa6e80907627.png"
-                                     alt="儿童穿戴"><span>儿童穿戴</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=284&amp;title=%E7%AB%A5%E9%9E%8B%E7%AB%A5%E5%8C%85">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/54c57cca36e517b4abf7f80d82216656.jpg?w=480&amp;h=480"
-                                     src="/static/image/54c57cca36e517b4abf7f80d82216656.jpg"
-                                     alt="童鞋童包"><span>童鞋童包</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=983&amp;title=%E5%B0%BF%E8%A3%A4%E6%B9%BF%E5%B7%BE">
-                                <img data-src="https://img.youpin.mi-img.com/goods/shop_1bcd04c14b0c3d3392b8c34010057103.png?_s=ks3"
-                                     src="/static/image/shop_1bcd04c14b0c3d3392b8c34010057103.png"
-                                     alt="尿裤湿巾"><span>尿裤湿巾</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=294&amp;title=%E5%96%82%E5%85%BB">
-                                <img data-src="https://img.youpin.mi-img.com/goods/shop_7c5bb8640a409c1612e31d1324c6955f.png?_s=ks3"
-                                     src="/static/image/shop_7c5bb8640a409c1612e31d1324c6955f.png"
-                                     alt="喂养"><span>喂养</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=736&amp;title=%E6%B4%97%E6%8A%A4">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/887393bde224f15f3013ca7f8441819d.jpg?_s=ks3"
-                                     src="/static/image/887393bde224f15f3013ca7f8441819d.jpg" alt="洗护"><span>洗护</span>
-                            </li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=155&amp;secondId=267&amp;title=%E5%AF%9D%E5%B1%85">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/5778d1cd4dfa6a39acc4c19f94adc021.jpg?_s=ks3"
-                                     src="/static/image/5778d1cd4dfa6a39acc4c19f94adc021.jpg" alt="寝居"><span>寝居</span>
-                            </li>
+                                <img data-src="{{ p.image }}"
+                                     src="{{ p.image }}"
+                                     alt="{{ p.content }}"><span>{{ p.content }}</span></li>
                         </ul>
+                        {% endfor %}
                     </div>
-                    <div class="cate-detail-group"><p class="title">宠物生活</p>
+
+                    <div class="cate-detail-group">
+                        {% for lord in menus %}
+                            {% for attached in menus %}
+                            {% if lord.mid == attached.id %}
+                            <p id="{{ attached.id }}">{{ lord.menu }}</p>
+                            {% endif %}
+                                {% endfor %}
+                    {% endfor %}
+                        {% for p in title %}
                         <ul class="cate-detail-list">
                             <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1089&amp;title=%E5%AE%A0%E7%89%A9%E6%99%BA%E8%83%BD">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/41917d8943d0631b5e06c6636008d32d.jpg?_s=ks3"
-                                     src="/static/image/41917d8943d0631b5e06c6636008d32d.jpg"
-                                     alt="宠物智能"><span>宠物智能</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1078&amp;title=%E4%B8%BB%E7%B2%AE%E9%9B%B6%E9%A3%9F">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/7c34549e7799a5e840239ff956619cf0.jpg?_s=ks3"
-                                     src="/static/image/7c34549e7799a5e840239ff956619cf0.jpg"
-                                     alt="主粮零食"><span>主粮零食</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1083&amp;title=%E6%97%A5%E7%94%A8/%E6%B8%85%E6%B4%81">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/41a3abf1949cceed5b04c9172681dd85.png?_s=ks3"
-                                     src="/static/image/41a3abf1949cceed5b04c9172681dd85.png"
-                                     alt="日用/清洁"><span>日用/清洁</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1079&amp;title=%E7%8E%A9%E5%85%B7/%E7%89%B5%E5%BC%95">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/9ec0211f1e46a065d9906ef41fd491ee.jpg?_s=ks3"
-                                     src="/static/image/9ec0211f1e46a065d9906ef41fd491ee.jpg"
-                                     alt="玩具/牵引"><span>玩具/牵引</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1085&amp;title=%E6%B4%97%E6%8A%A4%E7%BE%8E%E5%AE%B9">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/91c3282c76552006a97224b0106ce355.jpg?_s=ks3"
-                                     src="/static/image/91c3282c76552006a97224b0106ce355.jpg"
-                                     alt="洗护美容"><span>洗护美容</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1427&amp;title=%E5%AE%A0%E7%89%A9%E4%B8%8A%E6%96%B0">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/c6104cd985e254720fb04bfed6cc31e7.png?w=800&amp;h=800"
-                                     src="/static/image/c6104cd985e254720fb04bfed6cc31e7.png"
-                                     alt="宠物上新"><span>宠物上新</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1430&amp;title=%E7%88%86%E5%93%81%E6%8E%A8%E8%8D%90">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/b5559df7fdbe9164f74d4445d0af8c5a.png?w=800&amp;h=800"
-                                     src="/static/image/b5559df7fdbe9164f74d4445d0af8c5a.png"
-                                     alt="爆品推荐"><span>爆品推荐</span></li>
-                            <li class="m-tag-a"
-                                data-src="/goodsbycategory?firstId=1077&amp;secondId=1443&amp;title=%E9%99%90%E6%97%B6%E9%99%90%E9%87%8F%E7%A7%92%E6%9D%80">
-                                <img data-src="https://img.youpin.mi-img.com/miio_album_pics/f9f95218488f0ee06cac3878e35d213e.jpg?w=480&amp;h=480"
-                                     src="/static/image/f9f95218488f0ee06cac3878e35d213e.jpg"
-                                     alt="限时限量秒杀"><span>限时限量秒杀</span></li>
+                                data-src="/goodsbycategory?firstId=155&amp;secondId=990&amp;title=%E5%A9%B4%E7%AB%A5%E4%B8%8A%E6%96%B0">
+                                <img data-src="{{ pmenu.image }}"
+                                     src="{{ pmenu.image }}"
+                                     alt="{{ pmenu.content }}"><span>{{ pmenu.content }}</span></li>
                         </ul>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -355,10 +276,10 @@
                                     </div>
                                     <p class="pro-desc">{{ plate.content }}</p></div>
                                 <div class="category-box">
-{#                                    <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"#}
-{#                                                                              style="background-color: rgb(217, 107, 108);">特价</span><span#}
-{#                                            class="common-tag common-tag-text"#}
-{#                                            style="background-color: rgb(217, 107, 108);">加价购</span></div>#}
+                                    <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
+                                                                              style="background-color: rgb(217, 107, 108);">特价</span><span
+                                            class="common-tag common-tag-text"
+                                            style="background-color: rgb(217, 107, 108);">加价购</span></div>
                                     <p class="pro-info" title="突破二位转换器">{{ plate.title }}</p>
                                     <p class="pro-price"><span class="pro-unit">¥</span><span
                                             class="m-num">{{ plate.price }}</span></p></div>
@@ -417,6 +338,24 @@ var _hmt = _hmt || [];
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
 })();
+</script>
+<script>
+    function add(menu_id){
+        console.log(menu_id)
+        document.getElementsByClassName("nav-detail")[0].className += ' show';
+    }
+    function out() {
+        document.getElementsByClassName("nav-detail show")[0].classList.remove("show");
+    }
+
+    var l = document.getElementById("lord_menu.id");
+    var a = document.getElementById("attached_menu.id");
+    var lo = document.getElementById("lord.id");
+    var at = document.getElementById("attached.id");
+
+    if (l == lo){
+        a == at
+}
 </script>
 <img src="/static/image/0.gif" style="display: none;"></body>
 </html>
