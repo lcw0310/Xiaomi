@@ -22,7 +22,6 @@ class Index(models.Model):
 
 class Paymenu(models.Model):
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50)
     image = models.CharField(max_length=100)
     content = models.CharField(max_length=50)
     pid = models.ImageField()
