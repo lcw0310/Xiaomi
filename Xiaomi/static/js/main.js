@@ -3703,10 +3703,10 @@
                             return n.e(3).then(n.bind(null, 452))
                         }, "Crowdfundinglist")
                     }), u.a.createElement(l.b, {
-                        path: "/notfound", component: n.i(f.a)(function () {
-                            return n.e(13).then(n.bind(null, 454))
-                        }, "Error")
-                    }), u.a.createElement(l.c, {from: "*", to: "/notfound"}))
+                    //     path: "/notfound", component: n.i(f.a)(function () {
+                    //         return n.e(13).then(n.bind(null, 454))
+                    //     }, "Error")
+                    // }), u.a.createElement(l.c, {from: "*", to: "/notfound"}))
                 }
             }, {
                 key: "render", value: function () {
