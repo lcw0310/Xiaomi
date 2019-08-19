@@ -28,3 +28,33 @@ class Paymenu(models.Model):
 
     class Meta:
         db_table = 'xiaomi_PayTitle'
+
+class List(models.Model):
+    id = models.AutoField(primary_key=True)
+    image = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
+    content = models.CharField(max_length=50)
+    price = models.IntegerField()
+    pid = models.IntegerField()
+
+    class Meta:
+        db_table = 'xiaomi_list'
+
+class Detail(models.Model):
+    id = models.AutoField(primary_key=True)
+    image = models.CharField(max_length=100)
+    image_1 = models.CharField(max_length=100)
+    image_2 = models.CharField(max_length=100)
+    image_3 = models.CharField(max_length=100)
+    image_4 = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+    price = models.IntegerField()
+    delivery = models.CharField(max_length=100)
+    quantity = models.IntegerField()
+    # overview = models.CharField(max_length=100)
+    # comment = models.CharField(max_length=100)
+
+
+    class Meta:
+        db_table = 'xiaomi_detail'

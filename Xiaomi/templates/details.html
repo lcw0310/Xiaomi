@@ -1,0 +1,229 @@
+{% extends 'bash.html' %}
+{% block detail %}
+    <div class="detail" style="">
+        <div class="container" style="">
+            <div>
+                <div class="header clearfix">
+                    {% for detail in details %}
+                        <div class="banner clearfix">
+                            <div class="main fl">
+                                <img src="{{ detail.image }}"></div>
+                            <div class="thumb fr" style="display: block;">
+                                <div class="thumb-container" style="top: 0px;">
+                                    <div class="thumb-pic" style="border-color: rgb(132, 95, 63);"><img
+                                            src="{{ detail.image_1 }}">
+                                    </div>
+                                    <div class="thumb-pic" style="border-color: rgb(236, 236, 236);"><img
+                                            src="{{ detail.image_2 }}"></div>
+                                    <div class="thumb-pic" style="border-color: rgb(236, 236, 236);"><img
+                                            src="{{ detail.image_3 }}"></div>
+                                    <div class="thumb-pic" style="border-color: rgb(236, 236, 236);"><img
+                                            src="{{ detail.image_4 }}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% for detail in details %}
+                        <div class="sku-container">
+                            <div class="name clearfix">
+                                <div class="good-name fl">{{ detail.title }}</div>
+                            </div>
+                            <div class="summary">{{ detail.description }}</div>
+                            <div class="promotion-box"></div>
+                            <div class="card">
+                                <div class="price-line"><h5 class="sku-title">售价</h5>
+                                    <div class="price"><span class="money-symbol">¥</span><span
+                                            class="value">{{ detail.price }}</span>
+                                    </div>
+                                </div>
+                                <div class="service-line"><h5 class="sku-title">服务</h5>
+                                    <div class="introduce-container"><p class="icon">!</p>
+                                        <div class="content ">
+                                            <div class="cardmodal-outer-container"
+                                                 style="width: 500px; left: -20px; top: -20px;">
+                                                <div class="inner-container"
+                                                     style="width: 500px; left: 20px; top: 20px;">
+                                                    <div class="container" style="width: 494px;">
+                                                        <div class="content-main"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="size">
+                                                    <div class="content-main"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service">
+                                        <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                                                     href="javascript:;"></a><span
+                                                class="service-item-text">包邮</span></div>
+                                        <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                                                     href="javascript:;"></a><span
+                                                class="service-item-text">小米自营</span></div>
+                                        <div class="service-item"><a class="m-icons m-icons-service " data-src=""
+                                                                     href="javascript:;"></a><span
+                                                class="service-item-text">7天无理由</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address-line"><h5 class="sku-title">配送区域</h5>
+                                <div class="address">
+                                    <div><span>{{ detail.delivery }}</span><span>&nbsp;有货</span><a>修改</a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="overflow: hidden; padding: 0px 0px 12px;"></div>
+                                <div class="count-line"><h5 class="sku-title count-title">数量</h5>
+                                    <div class="count-container">
+                                        <div>
+                                            <div class="minus-btn"><a class="m-icons m-icons-reduce " data-src=""
+                                                                      href="javascript:;"></a></div>
+                                            <input type="text" value="1" class="count-input">
+                                            <div class="minus-btn-active"><a class="m-icons m-icons-add-active "
+                                                                             data-src="" href="javascript:;"></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-line">
+                                <div class="buy-btn-container"><a class="m-btns m-btn-middle m-btn-brown"
+                                                                  href="shopping_cart">加入购物车</a></div>
+                                <div class="favor-btn ">
+                                    <div><a class="m-icons m-icons-collection " data-src="" href="javascript:;"></a>
+                                        <p>收藏</p></div>
+                                </div>
+                                <div class="faver-service-btn favor-btn ">
+                                    <div><a class="m-icons m-icons-service-detail " data-src="" href="javascript:;"></a>
+                                        <p>客服</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="detail-content">
+                    <div class="info fl">
+                        <div class="nav-title">
+                            <ul class="info-nav clearfix">
+                                <li class="info-nav-item"
+                                    style="border-right-color: rgb(204, 204, 204); width: 128px;">概述
+                                </li>
+                                <li class="info-nav-item" style="border-right-color: transparent;width:128px;">
+                                    评论
+                                </li>
+                            </ul>
+                            <div class="nav-arr-container">
+                                <div class="nav-arr" style="left: 0px; width: 128px;"></div>
+                            </div>
+                        </div>
+                        {#                            <div class="main-body">#}
+                        {#                                <div><img src="https://shop.io.mi-img.com/app/shop/img?id=shop_3ab2f9cfb47e955d53a78e50a7636e34.jpeg&w=720&h=1192" style="width: 100%;"></div>#}
+                        {#                            </div>#}
+                        <div class="main-body">
+                            <div style="">
+                                <div class="comment-top-container clearfix">
+                                    <div class="clearfix">
+                                        <div class="comment-top-positive-rate"><span>97%满意</span></div>
+                                        <div class="comment-top-ratingbar-container"><span>用户评价:&nbsp;&nbsp;</span><span
+                                                class="comment-top-ratingbar"><div class="ratingbar-container"><div
+                                                class="ratingbar-item"><img
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAMAAAArU9sbAAAAeFBMVEUAAACEXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+aUYjrAAAAJ3RSTlMALevxNb/27JhvQyULqaF1Sj8cGBTmkNHKxLavlYV9alYF39uaXBDgsaiUAAABsklEQVRYw73X2W7CMBCFYadOHJKQBbJA2el23v8Nq9atprhpxvGg/reIT5EOEbb6r4Z7IA0aJS9BIkdWAFZiZQdgJ0VifBQLlf2nspchEWyRSClhKyVIge8KgVLhuyocWYNaBysLUItQpDWgTBuoDPjZEIZ05kYxXZByxG3HEORNO4p+C1BOcDvNR5Yp3NLlbKXG7+rZj9KPKP3S//vR5VRtNcbS2+p0iSata9HUi6QHX58s6qa4um9dfh52z5jb82445/YtrcuNgSSzKWsVa0jTsSJGghAjQIgRIMTIEMukgUhqka+ihyDkISKCGAFCjAAhRoQQI0KIESHEiBBiRAgxIoQYCUKMZhEdKbaefxQe6cDXeZy1+VascgbfmVUO4DuwSgK+hFW8fi+SiajOYyL5SJmXkrEHZT7+CP3opTwySopfjWyfTiMt3PaFKvZwayeV3H2O2P53us+Tz5ho09DdfDM6Ej/R0+vNR69P3iPRRGl2dU+PWeo5kobNHJdjh9ijgU17XPHMof1rw8OXs2YnKoupa23JjpTZcaeLE2akF2xzxZdv8TJ1f74ovy6Vun/vXCUmwGzK58QAAAAASUVORK5CYII="
+                                                alt="评分"
+                                                style="height: 14px; width: 14px; margin-left: 3.5px; margin-top: -4.66667px;"></div><div
+                                                class="ratingbar-item"><img
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAMAAAArU9sbAAAAeFBMVEUAAACEXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+aUYjrAAAAJ3RSTlMALevxNb/27JhvQyULqaF1Sj8cGBTmkNHKxLavlYV9alYF39uaXBDgsaiUAAABsklEQVRYw73X2W7CMBCFYadOHJKQBbJA2el23v8Nq9atprhpxvGg/reIT5EOEbb6r4Z7IA0aJS9BIkdWAFZiZQdgJ0VifBQLlf2nspchEWyRSClhKyVIge8KgVLhuyocWYNaBysLUItQpDWgTBuoDPjZEIZ05kYxXZByxG3HEORNO4p+C1BOcDvNR5Yp3NLlbKXG7+rZj9KPKP3S//vR5VRtNcbS2+p0iSata9HUi6QHX58s6qa4um9dfh52z5jb82445/YtrcuNgSSzKWsVa0jTsSJGghAjQIgRIMTIEMukgUhqka+ihyDkISKCGAFCjAAhRoQQI0KIESHEiBBiRAgxIoQYCUKMZhEdKbaefxQe6cDXeZy1+VascgbfmVUO4DuwSgK+hFW8fi+SiajOYyL5SJmXkrEHZT7+CP3opTwySopfjWyfTiMt3PaFKvZwayeV3H2O2P53us+Tz5ho09DdfDM6Ej/R0+vNR69P3iPRRGl2dU+PWeo5kobNHJdjh9ijgU17XPHMof1rw8OXs2YnKoupa23JjpTZcaeLE2akF2xzxZdv8TJ1f74ovy6Vun/vXCUmwGzK58QAAAAASUVORK5CYII="
+                                                alt="评分"
+                                                style="height: 14px; width: 14px; margin-left: 3.5px; margin-top: -4.66667px;"></div><div
+                                                class="ratingbar-item"><img
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAMAAAArU9sbAAAAeFBMVEUAAACEXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+aUYjrAAAAJ3RSTlMALevxNb/27JhvQyULqaF1Sj8cGBTmkNHKxLavlYV9alYF39uaXBDgsaiUAAABsklEQVRYw73X2W7CMBCFYadOHJKQBbJA2el23v8Nq9atprhpxvGg/reIT5EOEbb6r4Z7IA0aJS9BIkdWAFZiZQdgJ0VifBQLlf2nspchEWyRSClhKyVIge8KgVLhuyocWYNaBysLUItQpDWgTBuoDPjZEIZ05kYxXZByxG3HEORNO4p+C1BOcDvNR5Yp3NLlbKXG7+rZj9KPKP3S//vR5VRtNcbS2+p0iSata9HUi6QHX58s6qa4um9dfh52z5jb82445/YtrcuNgSSzKWsVa0jTsSJGghAjQIgRIMTIEMukgUhqka+ihyDkISKCGAFCjAAhRoQQI0KIESHEiBBiRAgxIoQYCUKMZhEdKbaefxQe6cDXeZy1+VascgbfmVUO4DuwSgK+hFW8fi+SiajOYyL5SJmXkrEHZT7+CP3opTwySopfjWyfTiMt3PaFKvZwayeV3H2O2P53us+Tz5ho09DdfDM6Ej/R0+vNR69P3iPRRGl2dU+PWeo5kobNHJdjh9ijgU17XPHMof1rw8OXs2YnKoupa23JjpTZcaeLE2akF2xzxZdv8TJ1f74ovy6Vun/vXCUmwGzK58QAAAAASUVORK5CYII="
+                                                alt="评分"
+                                                style="height: 14px; width: 14px; margin-left: 3.5px; margin-top: -4.66667px;"></div><div
+                                                class="ratingbar-item"><img
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAMAAAArU9sbAAAAeFBMVEUAAACEXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+aUYjrAAAAJ3RSTlMALevxNb/27JhvQyULqaF1Sj8cGBTmkNHKxLavlYV9alYF39uaXBDgsaiUAAABsklEQVRYw73X2W7CMBCFYadOHJKQBbJA2el23v8Nq9atprhpxvGg/reIT5EOEbb6r4Z7IA0aJS9BIkdWAFZiZQdgJ0VifBQLlf2nspchEWyRSClhKyVIge8KgVLhuyocWYNaBysLUItQpDWgTBuoDPjZEIZ05kYxXZByxG3HEORNO4p+C1BOcDvNR5Yp3NLlbKXG7+rZj9KPKP3S//vR5VRtNcbS2+p0iSata9HUi6QHX58s6qa4um9dfh52z5jb82445/YtrcuNgSSzKWsVa0jTsSJGghAjQIgRIMTIEMukgUhqka+ihyDkISKCGAFCjAAhRoQQI0KIESHEiBBiRAgxIoQYCUKMZhEdKbaefxQe6cDXeZy1+VascgbfmVUO4DuwSgK+hFW8fi+SiajOYyL5SJmXkrEHZT7+CP3opTwySopfjWyfTiMt3PaFKvZwayeV3H2O2P53us+Tz5ho09DdfDM6Ej/R0+vNR69P3iPRRGl2dU+PWeo5kobNHJdjh9ijgU17XPHMof1rw8OXs2YnKoupa23JjpTZcaeLE2akF2xzxZdv8TJ1f74ovy6Vun/vXCUmwGzK58QAAAAASUVORK5CYII="
+                                                alt="评分"
+                                                style="height: 14px; width: 14px; margin-left: 3.5px; margin-top: -4.66667px;"></div><div
+                                                class="ratingbar-item"><img
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAMAAAArU9sbAAAAeFBMVEUAAACEXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+EXz+aUYjrAAAAJ3RSTlMALevxNb/27JhvQyULqaF1Sj8cGBTmkNHKxLavlYV9alYF39uaXBDgsaiUAAABsklEQVRYw73X2W7CMBCFYadOHJKQBbJA2el23v8Nq9atprhpxvGg/reIT5EOEbb6r4Z7IA0aJS9BIkdWAFZiZQdgJ0VifBQLlf2nspchEWyRSClhKyVIge8KgVLhuyocWYNaBysLUItQpDWgTBuoDPjZEIZ05kYxXZByxG3HEORNO4p+C1BOcDvNR5Yp3NLlbKXG7+rZj9KPKP3S//vR5VRtNcbS2+p0iSata9HUi6QHX58s6qa4um9dfh52z5jb82445/YtrcuNgSSzKWsVa0jTsSJGghAjQIgRIMTIEMukgUhqka+ihyDkISKCGAFCjAAhRoQQI0KIESHEiBBiRAgxIoQYCUKMZhEdKbaefxQe6cDXeZy1+VascgbfmVUO4DuwSgK+hFW8fi+SiajOYyL5SJmXkrEHZT7+CP3opTwySopfjWyfTiMt3PaFKvZwayeV3H2O2P53us+Tz5ho09DdfDM6Ej/R0+vNR69P3iPRRGl2dU+PWeo5kobNHJdjh9ijgU17XPHMof1rw8OXs2YnKoupa23JjpTZcaeLE2akF2xzxZdv8TJ1f74ovy6Vun/vXCUmwGzK58QAAAAASUVORK5CYII="
+                                                alt="评分"
+                                                style="height: 14px; width: 14px; margin-left: 3.5px; margin-top: -4.66667px;"></div></div></span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-top-tabs">
+                                        <div class="tabbar-container">
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-brown"
+                                                    href="javascript:;">全部(30837)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">有图(1696)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">好用(984)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">高性价比(434)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">漂亮美观(223)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">质量好(128)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">包装好(32)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">做工精致(9)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">手感佳(4)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">使用舒适(3)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">物流不好(24)</a></div>
+                                            <div class="tabbar-item"><a
+                                                    class="comment-top-tabs-item m-btns m-btn-xs m-btn-gray"
+                                                    href="javascript:;">质量一般(12)</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="height: 100px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="best">
+                        <div class="flagship">
+                            <div class="icon-container"><img
+                                    src="https://img.youpin.mi-img.com/youpinoper/shop_72bacf474dfad998341d995c6fcb9db1.jpg"
+                                    height="100%">
+                                <div class="title-container"><h6 title="小米自营产品">小米自营产品</h6>
+                                    <p>为发烧而生</p></div>
+                            </div>
+                        </div>
+                        <div><h2 class="recommend-title"><span class="special-line"></span>相关推荐<span
+                                class="special-line"></span></h2>
+                            <div class="best-product">
+                                <div class="image-container">
+                                    <div class="m-product-image-container undefined"
+                                         data-src="https://img.youpin.mi-img.com/800_pic/5a153ad294af625bbb325148bf01b59d.png"
+                                         style="width: 260px; height: 197px;">
+                                        <div class="img-container"
+                                             style="padding: 22px 53px; width: 154px; height: 153px;"><img
+                                                src="./小米AI音箱-小米有品_files/5a153ad294af625bbb325148bf01b59d.png"
+                                                data-src="https://img.youpin.mi-img.com/800_pic/5a153ad294af625bbb325148bf01b59d.png"
+                                                alt="小米小爱音箱HD"
+                                                style="height: 154px; width: 154px; margin-top: -0.5px;"></div>
+                                    </div>
+                                </div>
+                                <p title="360°全向音效，澎湃低音，精准拾音，小爱智能语音交互">360°全向音效，澎湃低音，精准拾音，小爱智能语音交互</p><h5>
+                                小米小爱音箱HD</h5><h4><span class="dollar">￥</span><span class="price">599</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-toast-group m-toast-top-center"></div>
+        </div>
+    </div>
+{% endblock %}
