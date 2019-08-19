@@ -6,7 +6,7 @@
                     {% for lord_menu in menus %}
                         {% for attached_menu in menus %}
                             {% if lord_menu.id == attached_menu.mid %}
-                                <li class="nav-item " onmouseover="add({{ lord_menu.id }})" onmouseout="out(this)">
+                                <li class="nav-item " onmouseover="add({{ lord_menu.id }})" onmouseout="out()">
                                     <span class="lor_menu"><a
                                             data-src="/goodsbycategory?firstId=446&amp;secondId=446&amp;"
                                             id="{{ lord_menu.id }}">{{ lord_menu.menu }}</a></span>
@@ -21,7 +21,7 @@
                 </ul>
 
                 {% for lord_menu in menus %}
-                    <div class="nav-detail" name="{{ lord_menu.id }}" onmouseover="adds(this)" onmouseout="out(this)">
+                    <div class="nav-detail" name="{{ lord_menu.id }}" onmouseover="adds()" onmouseout="out()">
                         <div class="cate-detail-group">
                             <p id="{{ lord_menu.id }}">{{ lord_menu.menu }}</p>
                             <ul class="cate-detail-list">
@@ -45,7 +45,7 @@
                                                 <li class="m-tag-a" data-src="/goodsbycategory?firstId=155&amp;secondId=990&amp;title=%E5%A9%B4%E7%AB%A5%E4%B8%8A%E6%96%B0">
                                                     <img data-src="{{ p.image }}"
                                                          src="{{ p.image }}"
-                                                         alt="{{ p.content }}"><span>{{ p.content }}</span></li>
+                                                         alt="{{ p.content }}"><span><a href="list">{{ p.content }}</a></span></li>
                                             {% endif %}
                                         </ul>
                                     {% endfor %}
@@ -207,10 +207,6 @@
                                     </div>
                                     <p class="pro-desc">{{ plate.content }}</p></div>
                                 <div class="category-box">
-                                    <div class="m-goods-common-tag-con"><span class="common-tag common-tag-text"
-                                                                              style="background-color: rgb(217, 107, 108);">特价</span><span
-                                            class="common-tag common-tag-text"
-                                            style="background-color: rgb(217, 107, 108);">加价购</span></div>
                                     <p class="pro-info" title="突破二位转换器">{{ plate.title }}</p>
                                     <p class="pro-price"><span class="pro-unit">¥</span><span
                                             class="m-num">{{ plate.price }}</span></p></div>

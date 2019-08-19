@@ -17,7 +17,8 @@ def list(request):
 
 def detail(request):
     detail = Detail.objects.all()
-    return render(request,'details.html',{'details':detail})
+    list = List.objects.all()
+    return render(request,'details.html',{'details':detail,'lists':list})
 
 def shopping_cart(request):
     return render(request,'shopping_cart.html')

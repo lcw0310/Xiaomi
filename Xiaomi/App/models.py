@@ -54,7 +54,7 @@ class Detail(models.Model):
     quantity = models.IntegerField()
     # overview = models.CharField(max_length=100)
     # comment = models.CharField(max_length=100)
-
+    pid = models.IntegerField()
 
     class Meta:
         db_table = 'xiaomi_detail'

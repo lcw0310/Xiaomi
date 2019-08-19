@@ -4,7 +4,9 @@
         <div class="container" style="">
             <div>
                 <div class="header clearfix">
+                {% for list in lists %}
                     {% for detail in details %}
+                        {% if detail.id == 1 %}
                         <div class="banner clearfix">
                             <div class="main fl">
                                 <img src="{{ detail.image }}"></div>
@@ -22,8 +24,12 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                     {% endfor %}
+                {% endfor %}
+                {% for list in lists %}
                     {% for detail in details %}
+                        {% if detail.id == list.id %}
                         <div class="sku-container">
                             <div class="name clearfix">
                                 <div class="good-name fl">{{ detail.title }}</div>
@@ -98,7 +104,9 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                     {% endfor %}
+                {% endfor %}
                 </div>
                 <div class="detail-content">
                     <div class="info fl">
@@ -210,7 +218,7 @@
                                          style="width: 260px; height: 197px;">
                                         <div class="img-container"
                                              style="padding: 22px 53px; width: 154px; height: 153px;"><img
-                                                src="./小米AI音箱-小米有品_files/5a153ad294af625bbb325148bf01b59d.png"
+                                                src="https://img.youpin.mi-img.com/goods/fshop_cdcc7ec5ed82485c78f33f6897a76673.jpeg?_s=ks3"
                                                 data-src="https://img.youpin.mi-img.com/800_pic/5a153ad294af625bbb325148bf01b59d.png"
                                                 alt="小米小爱音箱HD"
                                                 style="height: 154px; width: 154px; margin-top: -0.5px;"></div>

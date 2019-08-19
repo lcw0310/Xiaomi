@@ -19,7 +19,7 @@
                 <div class="m-product-list  clearfix">
                     {% for list in lists %}
                         {% if list.pid == 1 %}
-                        <a href="detail"><div class="pro-item m-tag-a " data-src="/detail?gid=100328" data-target="_blank">
+                        <a href="detail?id={{ list.id }}"><div class="pro-item m-tag-a " data-src="/detail?gid=100328" data-target="_blank">
                             <div class="pro-img m-img-hover"><img class=""
                                                                   src="{{ list.image }}"
                                                                   data-src="https://img.youpin.mi-img.com/800_pic/639b31834d08d85c4de02e5a2fc426d6.png?t=webp"
