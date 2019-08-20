@@ -62,7 +62,7 @@
                             {% for image in menus %}
                             <div class="banner" style="opacity: 0;">
                                 <div class="banner-img">
-                                    <img src="{{ image.big_image }}" width="859px" height="358px" alt="轮播图1">
+                                    <img src="{{ image.big_image }}" width="859px" height="358px" alt="轮播图">
                                 </div>
                             </div>
                             {% endfor %}
@@ -122,7 +122,7 @@
                                 {% if title.id == title.plate_id %}
                                     <div class="swiper-slide swiper-slide-active"
                                          style="width: 266.25px; margin-right: 5px;">
-                                        <a href="detail"><div class="m-goods-item-container new-item-container first pro-item-sec margin-left-0"
+                                        <a href="detail?id={{ title.id }}"><div class="m-goods-item-container new-item-container first pro-item-sec margin-left-0"
                                              data-src="/detail?gid=110498" data-target="_blank">
                                             <div class="small-item-img">
                                                 <div class="m-placeholder" style="width: 266px; height: 266px;">
@@ -141,7 +141,7 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                        <div class="swiper-button-next-test m-icons-test m-icons-next-hover-test"></div>
+                        <div class="swiper-button-next m-icons m-icons-next-hover"></div>
                         <div class="swiper-button-prev-test m-icons-test m-icons-forward-hover-test"></div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                             {% for plate in menus %}
                                 {% if plate.plate_id >= 7 and plate.plate_id < 12 %}
                                     <div class="swiper-slide" style="width: 266.25px; margin-right: 5px;">
-                                        <div class="m-goods-item-container new-item-container  pro-item-sec margin-left-0"
+                                        <a href="detail?id={{ plate.id }}"><div class="m-goods-item-container new-item-container  pro-item-sec margin-left-0"
                                              data-src="/detail?gid=102607" data-target="_blank">
                                             <div class="small-item-img">
                                                 <div class="m-product-image-container undefined"
@@ -176,7 +176,7 @@
                                                    title="AI语音控制，变频压缩机，风冷无霜，草本杀菌">{{ plate.content }}</p>
                                                 <p class="pro-price"><span class="pro-unit">¥</span><span
                                                         class="m-num">{{ plate.price }}</span></p></div>
-                                        </div>
+                                        </div></a>
                                     </div>
                                 {% endif %}
                             {% endfor %}
@@ -193,7 +193,7 @@
                 <div class="m-product-list  clearfix">
                     {% for plate in menus %}
                         {% if plate.plate_id >= 13 %}
-                            <div class="m-goods-item-container first pro-item-category" data-src="/detail?gid=105565"
+                            <a href="detail?id={{ plate.id }}"><div class="m-goods-item-container first pro-item-category" data-src="/detail?gid=105565"
                                  data-target="_blank" style="margin: 2px">
                                 <div class="category-img-container">
                                     <div class="product-img">
@@ -210,7 +210,7 @@
                                     <p class="pro-info" title="突破二位转换器">{{ plate.title }}</p>
                                     <p class="pro-price"><span class="pro-unit">¥</span><span
                                             class="m-num">{{ plate.price }}</span></p></div>
-                            </div>
+                            </div></a>
                         {% endif %}
                     {% endfor %}
                 </div>

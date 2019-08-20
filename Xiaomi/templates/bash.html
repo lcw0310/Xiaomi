@@ -213,7 +213,7 @@
                         <a href="/index"><div class="m-logo m-tag-a" data-src="/"></div></a>
                         <div class="m-card-wrap fr">
                             <div class="m-card-mini"><a class="m-icons m-icons-cart-hover " data-src=""
-                                                        href="javascript:;"></a></div>
+                                                        href="shopping_cart"></a></div>
                         </div>
                         <div class="m-search">
                             <div class="search-form "><a class="m-icons m-icons-search-hover search-icon" data-src=""
@@ -377,28 +377,14 @@ var _hmt = _hmt || [];
     var timer = setInterval("Time()", 2000);
     /*调用定时器*/
 
-    oBody.onmouseover = function () {/*鼠标引入，清除定时器，轮播图停止*/
-        clearInterval(timer);
-    };
-    oBody.onmouseout = function () {/*鼠标移出，重新调用定时器，轮播图开始*/
-        clearInterval(timer);
-        timer = setInterval("Time()", 2000);
-    };
-</script>
-<script language="javascript">
-    var oNext = document.getElementsByClassName("swiper-button-next-test m-icons-test m-icons-next-hover-test")[0];
-    var Oprev = document.getElementsByClassName("swiper-button-prev-test m-icons-test m-icons-forward-hover-test")[0];
+    {#oBody.onmouseover = function () {/*鼠标引入，清除定时器，轮播图停止*/#}
+    {#    clearInterval(timer);#}
 
-var mySwiper = new Swiper('swiper-wrapper',{
-prevButton:'.oNext',
-nextButton:'Oprev',
-})
+    {#oBody.onmouseout = function () {/*鼠标移出，重新调用定时器，轮播图开始*/#}
+    {#    clearInterval(timer);#}
+    {#    timer = setInterval("Time()", 2000);#}
+
 </script>
-<script>
-    var a = alert(location.search.replace(/[^\d]/g, ""));
-    function add(menu_id) {
-        document.getElementById(aid)[0].className += 'id=';
-    }
-</script>
+
 <img src="/static/image/0.gif" style="display: none;"></body>
 </html>
