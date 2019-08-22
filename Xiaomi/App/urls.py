@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^settlement$', views.settlement, name='settlement'),
     url(r'^search$', views.search, name='search'),
     # url(r'^add_cart$',views.add_cart,name='add_cart'),
+    url(r'^delete$',views.delete,name='delect'),
 ]

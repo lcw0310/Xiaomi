@@ -36,7 +36,7 @@
                                 <div class="name clearfix">
                                     <div class="good-name fl">{{ detail.title }}</div>
                                 </div>
-                                <div class="summary">{{ detail.description }}</div>
+                                <div class="summary">{{ detail.content }}</div>
                                 <div class="promotion-box"></div>
                                 <div class="card">
                                     <div class="price-line"><h5 class="sku-title">售价</h5>
@@ -105,12 +105,14 @@
                                     </div>
                                 </div>
                                 <div class="btn-line">
-                                    {% for cart in image %}
+                                {% for cart in details %}
+{#                                    {% for c in carts %}#}
                                         {% if cart.id == parameter_id %}
                                     <div class="buy-btn-container"><a class="m-btns m-btn-middle m-btn-brown"
-                                                                      href="shopping_cart?id={{ cart.id }}">加入购物车</a></div>
+                                                                      href="shopping_cart?tit={{ cart.title }}">加入购物车</a></div>
                                         {% endif %}
-                                    {% endfor %}
+{#                                    {% endfor %}#}
+                                {% endfor %}
                                     <div class="favor-btn ">
                                         <div><a class="m-icons m-icons-collection " data-src="" href="javascript:;"></a>
                                             <p>收藏</p></div>

@@ -36,25 +36,52 @@ def detail(request):
     return render(request, 'details.html', context={'details': detail, 'parameter_id': parameter, 'image': image})
 
 
+# def shopping_cart(request):
+#     commodity = Index.objects.all()
+#     id = request.GET.get('id')
+#     # parameter = int(id)
+#     for value in commodity:
+#         value_id = str(value.id)
+#         if id == value_id:
+#             cart_id = Cart.objects.filter(id=value.id)
+#             if not len(cart_id) == 0: #判断列表不为空
+#                 cart = Cart.objects.get(id=value.id)
+#                 cart.digital += 1
+#                 cart.save()
+#             else:
+#                 add_cart = Cart(image=value.image, title=value.title, price=value.price)
+#                 add_cart.save()
+#     cart = Cart.objects.all()
+#     return render(request, 'shopping_cart.html', {'commodity': cart})
 def shopping_cart(request):
     commodity = Index.objects.all()
-    id = request.GET.get('id')
-    parameter = int(id)
-    for vaule in commodity:
-        if parameter == vaule.id:
-            a = Cart.objects.filter(id=vaule.id)
-            if not len(a) == 0: #判断列表不为空
-                cart = Cart.objects.get(id=vaule.id)
+    title = request.GET.get('tit')
+    for value in commodity:
+        value_title = str(value.title)
+        if title == value_title:
+            cart_id = Cart.objects.filter(title=value.title)
+            if not len(cart_id) == 0: #判断列表不为空
+                cart = Cart.objects.get(title=value.title)
                 cart.digital += 1
                 cart.save()
             else:
-                add_cart = Cart(image=vaule.image, title=vaule.title, price=vaule.price)
+                add_cart = Cart(image=value.image, title=value.title, total_price=value.price)
                 add_cart.save()
     cart = Cart.objects.all()
+    if len(cart) == 0:
+        return render(request,'shopping_null.html')
     return render(request, 'shopping_cart.html', {'commodity': cart})
 
 def delete(request):
-
+    id = request.GET.get('id')
+    cart = Cart.objects.filter(id=id)
+    parameter = int(id)
+    print(parameter)
+    for cart_id in cart:
+        print(cart_id.id)
+        if parameter == cart_id.id:
+            cart.delete()
+        return HttpResponseRedirect('/index/')
 
 def settlement(request):
     return render(request, 'settlement.html')
