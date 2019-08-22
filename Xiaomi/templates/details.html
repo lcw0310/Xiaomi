@@ -105,8 +105,12 @@
                                     </div>
                                 </div>
                                 <div class="btn-line">
+                                    {% for cart in image %}
+                                        {% if cart.id == parameter_id %}
                                     <div class="buy-btn-container"><a class="m-btns m-btn-middle m-btn-brown"
-                                                                      href="shopping_cart">加入购物车</a></div>
+                                                                      href="shopping_cart?id={{ cart.id }}">加入购物车</a></div>
+                                        {% endif %}
+                                    {% endfor %}
                                     <div class="favor-btn ">
                                         <div><a class="m-icons m-icons-collection " data-src="" href="javascript:;"></a>
                                             <p>收藏</p></div>
@@ -125,50 +129,15 @@
                     <div class="info fl">
                         <div class="nav-title">
                             <ul class="info-nav clearfix">
-                                <li class="info-nav-item" style="border-right-color: rgb(204, 204, 204); width: 128px;">
-                                    概述
-                                </li>
-                                <li class="info-nav-item" style="border-right-color: transparent; width: 128px;" onclick="">评论</li>
+                                <li class="info-nav-item" style="border-right-color: rgb(204, 204, 204); width: 128px;">概述</li>
+                                <li class="info-nav-item" style="border-right-color: transparent; width: 128px;">评论</li>
                             </ul>
                             <div class="nav-arr-container">
                                 <div class="nav-arr" style="left: 0px; width: 128px;"></div>
                             </div>
                         </div>
                         <div class="main-body">
-                            <div><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_3ab2f9cfb47e955d53a78e50a7636e34.jpeg&amp;w=720&amp;h=1192"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_39f31c9ecbcfd97a7aa610eeaad30292.jpeg&amp;w=720&amp;h=551"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_244704e76087962dbf68bc391d300441.jpeg&amp;w=720&amp;h=763"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_7e11644042c617669cb7717fc82a276f.jpeg&amp;w=720&amp;h=549"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_8e740f087f2ab43e14f3807a13883b8d.jpeg&amp;w=720&amp;h=767"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_730e4d8c6e2bd42af75295253a63e092.jpeg&amp;w=720&amp;h=552"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_d6d591be8bfb25f2c1bc7676c787f2ba.jpeg&amp;w=720&amp;h=756"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_045a0b75a478b0157d2ac4b82cc166a9.jpeg&amp;w=720&amp;h=555"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_b7f7cb6756c718569f601a0d77070be0.jpeg&amp;w=720&amp;h=763"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_adc6ac9dee8089f3ef422193cbbc46dc.jpeg&amp;w=720&amp;h=1587"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_fa261f9bf6d67b2f5d4bf946793fe87a.jpeg&amp;w=720&amp;h=423"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_0a39c0d0e3cea978cede48de5e0e9ee1.jpeg&amp;w=720&amp;h=554"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_7e125e5cc37bcb2e8ac0034244d97656.jpeg&amp;w=716&amp;h=679"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_88b44e395fb1b74a0ab07452e4ed56de.jpeg&amp;w=720&amp;h=551"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_329084d60823460fadc2722896b50cb6.jpeg&amp;w=720&amp;h=1219"
-                                    style="width: 100%;"><img
-                                    src="https://shop.io.mi-img.com/app/shop/img?id=shop_e452c83ff8bdcbc5f053ac10aafab823.jpeg&amp;w=720&amp;h=769"
-                                    style="width: 100%;"><img
-                                    src="https://img.youpin.mi-img.com/editor1/34d9309abc25227d26891dddcdf946d0.png?w=1080&amp;h=510"
+                            <div><img src="https://shop.io.mi-img.com/app/shop/img?id=shop_3ab2f9cfb47e955d53a78e50a7636e34.jpeg&amp;w=720&amp;h=1192"
                                     style="width: 100%;"></div>
                         </div>
                     </div>

@@ -58,3 +58,14 @@ class Detail(models.Model):
 
     class Meta:
         db_table = 'xiaomi_detail'
+
+class Cart(models.Model):
+    id = models.AutoField(primary_key=True)
+    image = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
+    price = models.IntegerField()
+    digital = models.IntegerField(default=1)
+    total_price = models.IntegerField()
+
+    class Meta:
+        db_table = 'xiaomi_cart'
