@@ -16,7 +16,6 @@ from App.forms import UserForm, PW, UserName
 from App.models import User, Paymenu, List, Index, Detail, Cart, Settlement
 from xiaomi.settings import maxage, MEDIA_ROOT
 
-
 from alipay import AliPay
 from django.shortcuts import render
 from rest_framework.decorators import api_view
@@ -293,12 +292,6 @@ def settlement(request):
                 add_cart = Settlement(image=value.image, title=value.title, price=value.price)
                 add_cart.save()
     settle = Settlement.objects.all()
-    return render(request, 'app/settlement.html', {'settles': settle, 'titles': title})
-
-
-@api_view(["GET", "POST"])
-def ali_buy(request):
-    order_no = "2019082102983"
 
     alipay = AliPay(
         appid=ALI_APP_ID,
@@ -310,23 +303,15 @@ def ali_buy(request):
         debug=False  # 默认False
     )
 
-    order_string = alipay.api_alipay_trade_wap_pay(
+    order_string = alipay.api_alipay_trade_page_pay(
         out_trade_no="2019061900100",
         total_amount=30,
         subject="macpro",
         return_url="http://localhost:8000/cart/index",
-        notify_url="http://localhost:8000/cart/index"  # 可选, 不填则使用默认notify url
+        # notify_url="http://localhost:8000/cart/index"  # 可选, 不填则使用默认notify url
     )
 
     # 支付宝网关
-    net = "https://openapi.alipaydev.com/gateway.do"
-
-    data = {
-        "msg": "ok",
-        "status": 200,
-        "data": {
-            "pay_url": net + order_string
-        }
-    }
-
-    return Response(data)
+    net = "https://openapi.alipaydev.com/gateway.do?"
+    url = net + order_string
+    return render(request, 'app/settlement.html', {'settles': settle, 'titles': title, 'url': url})
