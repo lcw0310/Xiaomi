@@ -29,12 +29,12 @@
       <file leaf-file-name="details.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/app/details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="391" column="42" selection-start-line="391" selection-start-column="42" selection-end-line="391" selection-end-column="42" />
+            <state relative-caret-position="69">
+              <caret line="142" column="38" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
               <folding>
                 <element signature="e#9312#9373#0#HTML" expanded="true" />
                 <element signature="e#9407#9461#0#HTML" expanded="true" />
-                <element signature="e#9961#9983#0#HTML" expanded="true" />
+                <element signature="e#10631#10673#0#HTML" expanded="true" />
                 <element signature="e#9723#9743#0#HTML" expanded="true" />
                 <element signature="e#9861#9881#0#HTML" expanded="true" />
                 <element signature="e#9999#10019#0#HTML" expanded="true" />
@@ -55,6 +55,7 @@
                 <element signature="e#14365#14400#0#HTML" expanded="true" />
                 <element signature="e#14431#14447#0#HTML" expanded="true" />
                 <element signature="e#14554#14573#0#HTML" expanded="true" />
+                <element signature="e#14659#14683#0#HTML" expanded="true" />
                 <element signature="e#12203#12209#0#HTML" expanded="true" />
                 <element signature="e#12209#12215#0#HTML" expanded="true" />
                 <element signature="e#12324#13252#0#HTML" expanded="true" />
@@ -102,7 +103,9 @@
                 <element signature="e#33368#33431#0#HTML" expanded="true" />
                 <element signature="e#33470#33523#0#HTML" expanded="true" />
                 <element signature="e#33617#33681#0#HTML" expanded="true" />
+                <element signature="e#46252#46281#0#HTML" expanded="true" />
                 <element signature="e#89987#90009#0#HTML" expanded="true" />
+                <element signature="e#128099#137834#0#HTML" />
                 <element signature="e#129152#129188#0#HTML" expanded="true" />
                 <element signature="e#129302#129358#0#HTML" expanded="true" />
                 <element signature="e#129690#129746#0#HTML" expanded="true" />
@@ -150,7 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
       <find>form</find>
       <find>登录</find>
       <find>注册</find>
@@ -174,12 +176,13 @@
       <find>http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010502010244</find>
       <find>https://shop.io.mi-img.com/static/h5/static3/media/record-icon.d0289dc0.png</find>
       <find>评论</find>
-      <find>clearfix</find>
       <find>class=&quot;comment-top-tabs&quot;</find>
       <find />
       <find>class=&quot;main-body&quot;</find>
       <find />
       <find>class=&quot;commentItem&quot;</find>
+      <find>best</find>
+      <find>clearfix</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -247,8 +250,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="467" />
-    <option name="y" value="39" />
+    <option name="x" value="435" />
+    <option name="y" value="1" />
     <option name="width" value="960" />
     <option name="height" value="713" />
   </component>
@@ -459,7 +462,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="435" y="1" width="960" height="713" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
@@ -467,7 +470,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32868525" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32789856" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34740883" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49888393" weight="0.4963768" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.23664123" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -611,13 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../19_选项卡.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="53" column="47" lean-forward="true" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/shopping_cart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -724,14 +720,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../19_选项卡.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-531">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="391" column="42" selection-start-line="391" selection-start-column="42" selection-end-line="391" selection-end-column="42" />
+        <state relative-caret-position="69">
+          <caret line="142" column="38" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
           <folding>
             <element signature="e#9312#9373#0#HTML" expanded="true" />
             <element signature="e#9407#9461#0#HTML" expanded="true" />
-            <element signature="e#9961#9983#0#HTML" expanded="true" />
+            <element signature="e#10631#10673#0#HTML" expanded="true" />
             <element signature="e#9723#9743#0#HTML" expanded="true" />
             <element signature="e#9861#9881#0#HTML" expanded="true" />
             <element signature="e#9999#10019#0#HTML" expanded="true" />
@@ -752,6 +755,7 @@
             <element signature="e#14365#14400#0#HTML" expanded="true" />
             <element signature="e#14431#14447#0#HTML" expanded="true" />
             <element signature="e#14554#14573#0#HTML" expanded="true" />
+            <element signature="e#14659#14683#0#HTML" expanded="true" />
             <element signature="e#12203#12209#0#HTML" expanded="true" />
             <element signature="e#12209#12215#0#HTML" expanded="true" />
             <element signature="e#12324#13252#0#HTML" expanded="true" />
@@ -799,7 +803,9 @@
             <element signature="e#33368#33431#0#HTML" expanded="true" />
             <element signature="e#33470#33523#0#HTML" expanded="true" />
             <element signature="e#33617#33681#0#HTML" expanded="true" />
+            <element signature="e#46252#46281#0#HTML" expanded="true" />
             <element signature="e#89987#90009#0#HTML" expanded="true" />
+            <element signature="e#128099#137834#0#HTML" />
             <element signature="e#129152#129188#0#HTML" expanded="true" />
             <element signature="e#129302#129358#0#HTML" expanded="true" />
             <element signature="e#129690#129746#0#HTML" expanded="true" />
