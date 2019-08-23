@@ -270,18 +270,20 @@
             <div class="">
                 <div class="container">
                     <div class="clearfix m-header-top">
-                        <a href="/index"><div class="m-logo m-tag-a" data-src="/"></div></a>
+                        <a href="/app"><div class="m-logo m-tag-a" data-src="/"></div></a>
                         <div class="m-card-wrap fr">
                             <div class="m-card-mini"><a class="m-icons m-icons-cart-hover " data-src=""
                                                         href="shopping_cart"></a></div>
                         </div>
-                        <div class="m-search">
-                            <div class="search-form "><a class="m-icons m-icons-search-hover search-icon" data-src=""
-                                                         href="javascript:;"></a>
-                                <div class="m-autocomplete search-input-con"><input type="text" value=""
-                                                                                    placeholder="精品低至5折 赢816元神券"></div>
+                        <form action="{% url 'app:search' %}" method="post">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                            <div class="m-search">
+                                <div class="search-form ">
+                                    <a class="m-icons m-icons-search-hover search-icon" data-src="" href=""></a>
+                                    <div class="m-autocomplete search-input-con"><input type="text" value="" name="shousuo" placeholder="精品低至5折 赢816元神券"></div>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -295,6 +297,10 @@
     {% block shopping_cart %}
     {% endblock %}
     {% block settlement %}
+    {% endblock %}
+    {% block null %}
+    {% endblock %}
+    {% block search %}
     {% endblock %}
     <div class="m-footer">
             <div class="container clearfix">

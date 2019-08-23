@@ -3,23 +3,22 @@ import os
 
 from django.contrib.auth import logout
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.utils.crypto import random
 from App.file import check_file_type, check_file_size
 
 from App.verification_code import send_sms
 
-
 from django.urls import reverse
 
 from App.forms import UserForm, PW, UserName
-from App.models import User, Paymenu, List, Index, Detail
+from App.models import User, Paymenu, List, Index, Detail, Cart
 from xiaomi.settings import maxage, MEDIA_ROOT
+
 
 # 登录页面
 def login(request):
-
     return render(request, 'app/login.html')
 
 
@@ -30,7 +29,8 @@ def verify_login(request):
     password1 = hashlib.sha1(password.encode()).hexdigest()
     print(password1)
     # 查询出数据库是否有这个用户名  返回的就是一个的字典
-    user1 = User.objects.values('password', 'username', 'portrait', 'cellphone').filter(Q(cellphone=user)|Q(xiaomiid=user)).first()
+    user1 = User.objects.values('password', 'username', 'portrait', 'cellphone').filter(
+        Q(cellphone=user) | Q(xiaomiid=user)).first()
     # print(user1, type(user1))
     # print(user1['password'])
 
@@ -50,8 +50,6 @@ def verify_login(request):
 # def loginout(request):
 #     logout()
 #     return render(request, 'app/index')
-
-
 
 
 # 用户注册
@@ -95,12 +93,13 @@ def is_sms(request):
     # print(sms, type(sms))
     yzm = request.session.get('yzm')
     if sms == yzm:
-        c=2
+        c = 2
         return render(request, 'app/enroll.html', {'c1': c, 'phone': phone})
 
     else:
         b = 1
         return render(request, 'app/enroll.html', {'a': b, 'error': '验证码错误或以过期'})
+
 
 # 保存密码
 def password(request):
@@ -129,6 +128,7 @@ def password(request):
 
     c = 2
     return render(request, 'app/enroll.html', {'c1': c, 'form1': form1})
+
 
 # 头像设置
 def user(request):
@@ -167,6 +167,7 @@ def user(request):
         # return HttpResponse('成功')
     return render(request, 'app/user.html', {'photo': photo1, 'xiaomiid': xiaomiid, 'username': username})
 
+
 # 用户名 性别设置
 def user1(request):
     form2 = UserName(request.POST)
@@ -186,12 +187,13 @@ def user1(request):
         photo = User.objects.values('portrait', 'xiaomiid').filter(cellphone=phone).first()
         photo1 = photo['portrait']
         xiaomiid = photo['xiaomiid']
-        gender1=""
+        gender1 = ""
         if gender == '0':
-            gender1='男'
+            gender1 = '男'
         elif gender == '1':
-            gender1='女'
-        return render(request, 'app/user.html', {'username': username, 'gender': gender1, 'photo': photo1, 'xiaomiid': xiaomiid})
+            gender1 = '女'
+        return render(request, 'app/user.html',
+                      {'username': username, 'gender': gender1, 'photo': photo1, 'xiaomiid': xiaomiid})
 
     return render(request, 'app/user.html', {'form2': form2})
 
@@ -199,18 +201,26 @@ def user1(request):
 def index(request):
     menus = Index.objects.all()
     title = Paymenu.objects.all()
-    cellphone = request.session.get('user')
-    if not cellphone:
-        return render(request, "app/index.html", context={"menus": menus, 'title': title})
-    else:
-        user1 = User.objects.values('username', 'portrait').filter(cellphone=cellphone).first()
+    print(title)
+    return render(request, 'app/index.html', {'menus': menus, 'title': title})
+    # cellphone = request.session.get('user')
+    # if not cellphone:
+    #     return render(request, "app/index.html", context={"menus": menus, 'title': title})
+    # else:
+    #     user1 = User.objects.values('username', 'portrait').filter(cellphone=cellphone).first()
+    #
+    #     username = user1['username']
+    #     photo = user1['portrait']
+    #     return render(request, "app/index.html", context={"menus": menus, 'title': title,
+    #                                                       'username': username, 'photo': photo})
 
-        username = user1['username']
-        photo = user1['portrait']
-        return render(request, "app/index.html", context={"menus": menus, 'title': title,
-                                                          'username': username, 'photo': photo})
 
-
+def search(request):
+    if request.method == 'POST':
+        canshu = request.POST.get('shousuo')
+        list = Index.objects.all()
+        return render(request, "app/search_list.html", {'canshu': canshu, 'lists': list})
+    return HttpResponseRedirect('/index/')
 
 
 def list(request):
@@ -224,11 +234,39 @@ def detail(request):
     image = Detail.objects.all()
     id = request.GET.get('id')
     parameter = int(id)
-    return render(request, 'app/details.html', context={'details': detail, 'parameter_id': parameter,'image':image})
+    return render(request, 'app/details.html', context={'details': detail, 'parameter_id': parameter, 'image': image})
 
 
 def shopping_cart(request):
-    return render(request, 'app/shopping_cart.html')
+    commodity = Index.objects.all()
+    title = request.GET.get('tit')
+    for value in commodity:
+        value_title = str(value.title)
+        if title == value_title:
+            cart_id = Cart.objects.filter(title=value.title)
+            if not len(cart_id) == 0:  # 判断列表不为空
+                cart = Cart.objects.get(title=value.title)
+                cart.digital += 1
+                cart.save()
+            else:
+                add_cart = Cart(image=value.image, title=value.title, price=value.price, total_price=value.price)
+                add_cart.save()
+    cart = Cart.objects.all()
+    # if len(cart) == 0:
+    #     return render(request, 'app/shopping_null.html')
+    return render(request, 'app/shopping_cart.html', {'commodity': cart})
+
+
+def delete(request):
+    id = request.GET.get('id')
+    cart = Cart.objects.filter(id=id)
+    parameter = int(id)
+    print(parameter)
+    for cart_id in cart:
+        print(cart_id.id)
+        if parameter == cart_id.id:
+            cart.delete()
+        return HttpResponseRedirect('/app/')
 
 
 def settlement(request):

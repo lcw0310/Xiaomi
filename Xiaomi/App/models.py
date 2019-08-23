@@ -65,7 +65,7 @@ class Index(models.Model):
     big_image = models.CharField(max_length=100,null=True)
 
     class Meta:
-        db_table = 'Xiaomi_index'
+        db_table = 'xiaomi_index'
 
 class Paymenu(models.Model):
     id = models.AutoField(primary_key=True)
@@ -74,7 +74,7 @@ class Paymenu(models.Model):
     pid = models.ImageField(null=True)
 
     class Meta:
-        db_table = 'xiaomi_PayTitle'
+        db_table = 'xiaomi_paytitle'
 
 class List(models.Model):
     id = models.AutoField(primary_key=True)
@@ -98,7 +98,7 @@ class Detail(models.Model):
     description = models.CharField(max_length=100)
     price = models.IntegerField(null=True)
     delivery = models.CharField(max_length=100)
-    quantity = models.IntegerField(null=True)
+    quantity = models.IntegerField(default=1)
     # overview = models.CharField(max_length=100)
     # comment = models.CharField(max_length=100)
     pid = models.IntegerField(null=True)
@@ -106,3 +106,13 @@ class Detail(models.Model):
     class Meta:
         db_table = 'xiaomi_detail'
 
+class Cart(models.Model):
+    id = models.AutoField(primary_key=True)
+    image = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
+    price = models.IntegerField()
+    digital = models.IntegerField(default=1)
+    total_price = models.IntegerField()
+
+    class Meta:
+        db_table = 'xiaomi_cart'
