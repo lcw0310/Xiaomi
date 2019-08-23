@@ -62,13 +62,17 @@
                 </div>
             </div>
         </div>
+                {% for comm in commodity %}
+                    {% if comm.title == titles %}
         <div class="cart-total bottom-total ">
             <div class="ico fl"><a class="m-icons m-icons-check-active select-icon" data-src=""
                                    href="javascript:;"></a><span class="select-text">全选</span><span
                     class="already-select">已选1件</span></div>
             <div class="totol-price-con no-reduce"><span
                     class="total-after-prefer"><span>合计：</span>￥{{ comm.total_price }}</span></div>
-            <span class="checkout  fr">去结算</span></div>
+            <a href="settlement?tit={{ comm.title }}"><span class="checkout  fr">去结算</span></a></div>
+                    {% endif %}
+    {% endfor %}
     </div>
 
 {% endblock %}

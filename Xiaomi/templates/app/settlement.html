@@ -2,8 +2,8 @@
 {% block settlement %}
         <div class="express-append">
             <div class="wrapper">
-                <div class="m-secondary-navigator"><span><a href="/index">首页</a></span><span><a
-                        href="/index/shopping_cart">购物车</a></span><span><a
+                <div class="m-secondary-navigator"><span><a href="/app">首页</a></span><span><a
+                        href="/app/shopping_cart">购物车</a></span><span><a
                         href="#">确认页</a></span>
                 </div>
                 <div>
@@ -38,12 +38,15 @@
                             <div class="merchant-spread">
                                 <div class="good-container clearfix"><p class="pro-support"><a
                                         class="m-icons m-icons-service " data-src="" href="javascript:;"></a>支持7天无理由退货
-                                </p><span class="img"><img class=""
-                                                           src="./结算-小米有品_files/6344a4e9fa695b00d439e1c3581d514c.png"
-                                                           data-src="https://img.youpin.mi-img.com/800_pic/6344a4e9fa695b00d439e1c3581d514c.png?t=webp"
-                                                           alt="" style="width: 50px; height: 50px;"></span><span
-                                        class="name"><span class="product-name">小米AI音箱</span></span><span class="total"><span
-                                        class="">￥</span><span class="txt">249.00</span></span><span class="price">249.00元×1</span>
+                                </p>
+                                {% for sett in settles %}
+                                    {% if sett.title == titles %}
+                                    <span class="img"><img class="" src="{{ sett.image }}" data-src="" alt="" style="width: 50px; height: 50px;"></span>
+                                        <span class="name"><span class="product-name">{{ sett.title }}</span></span>
+                                        <span class="total">
+                                            <span class="">￥</span><span class="txt">{{ sett.price }}</span></span><span class="price">{{ sett.price }}元×1</span>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
                                 <div class="form-invioce-item">
                                     <div class="form-item no-border"><span class="left-label">发票类型</span>
@@ -73,14 +76,18 @@
                     <div class="checkout-coupons-con"><span>无可用优惠券</span></div>
                     <div class="checkout-summary clearfix">
                         <div class="check-freeInfo fr">
+                                                    {% for total in settles %}
+                            {% if total.title == titles %}
                             <div class="freeInfo-item"><span class="freeInfo-key">商品总价：</span><span
-                                    class="freeInfo-value">249.00元</span></div>
+                                    class="freeInfo-value">{{ total.price }}元</span></div>
                             <div class="freeInfo-item fee-map-item "><span class="freeInfo-key">运费 ：</span><span
                                     class="freeInfo-value">0.00元</span></div>
                             <div class="freeInfo-item"><span class="freeInfo-key">优惠：</span><span
                                     class="freeInfo-value">0.00元</span></div>
                             <div class="total"><span class="freeInfo-key">合计：</span><span
-                                    class="freeInfo-value">￥249.00</span></div>
+                                    class="freeInfo-value">￥{{ total.price }}</span></div>
+                                 {% endif %}
+                        {% endfor %}
                         </div>
                     </div>
                     <div class="bottom-pay"><a class="m-btns m-btn-middle m-btn-brown" href="javascript:;">去下单</a></div>

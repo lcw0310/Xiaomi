@@ -116,3 +116,13 @@ class Cart(models.Model):
 
     class Meta:
         db_table = 'xiaomi_cart'
+
+class Settlement(models.Model):
+    id = models.AutoField(primary_key=True)
+    image = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
+    price = models.IntegerField()
+    quantity = models.IntegerField(default=1)
+
+    class Meta:
+        db_table = 'xiaomi_settlement'

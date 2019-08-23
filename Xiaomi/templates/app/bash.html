@@ -451,6 +451,35 @@ var _hmt = _hmt || [];
     {#    timer = setInterval("Time()", 2000);#}
 
 </script>
+<script>
+    var oHeader = document.getElementById('gaishu')
+    var oContent = document.getElementById('pinglun')
+
+
+    {#var yangshi = document.getElementById('ynagshi')#}
+    var image = oHeader.getElementById('yangshi')
+    var content = oContent.getElementById('yangshi')
+
+        image[0].onmouseover = function () {
+        this.className = 'gaishu'
+        aSpan[1].className = ''
+        aSpan[2].className = ''
+
+        aDiv[0].className = 'image'
+        aDiv[1].className = ''
+        aDiv[2].className = ''
+    }
+    content[1].onmouseover = function () {
+        this.className = 'pinglun'
+        aSpan[0].className = ''
+        aSpan[2].className = ''
+
+        aDiv[0].className = ''
+        aDiv[1].className = 'con'
+        aDiv[2].className = ''
+    }
+})
+</script>
 
 <img src="/static/image/0.gif" style="display: none;"></body>
 </html>

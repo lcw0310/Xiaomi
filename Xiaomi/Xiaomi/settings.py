@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'hzl4e@1#fzr$bb6h!8z25*i3=uu@s-$t+8ifnwd$ibzvot2(!x'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -73,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'xiaomi.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -88,7 +85,6 @@ DATABASES = {
         'PORT': 3306,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -108,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -122,12 +117,10 @@ USE_L10N = True
 
 USE_TZ = False
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 # 配置静态资源所在目录
 STATICFILES_DIRS = [
@@ -143,20 +136,22 @@ STATICFILES_DIRS = [
 # ]
 
 
-
-
 # 阿里云短信验证码配置
 SMSCONFIG = {
-    'ACCESS_KEY_ID':"LTAIOMnWsmz9cPl7",
-    'ACCESS_KEY_SECRET':"nyQzfUAAbjpUeIAN7cNKYjOAwG7DPU",
-    'SignName':"缘起娇飞",
-    'TemplateCode':"SMS_172350962"
+    'ACCESS_KEY_ID': "LTAIOMnWsmz9cPl7",
+    'ACCESS_KEY_SECRET': "nyQzfUAAbjpUeIAN7cNKYjOAwG7DPU",
+    'SignName': "缘起娇飞",
+    'TemplateCode': "SMS_172350962"
 }
 
 # session配置
 # 过期时间设置
-maxage = 3*24*3600
+maxage = 3 * 24 * 3600
 
 # 文件上传路径
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 
+# ＃确保您的密钥文件符合标准。
+APP_PRIVATE_KEY = open(os.path.join(BASE_DIR, 'alipay/app_private_key.pem')).read()
+ALIPAY_PUBLIC_KEY = open(os.path.join(BASE_DIR, 'alipay/alipay_public_key.pem')).read()
+ALI_APP_ID = "2016101200669434"

@@ -13,8 +13,18 @@ from App.verification_code import send_sms
 from django.urls import reverse
 
 from App.forms import UserForm, PW, UserName
-from App.models import User, Paymenu, List, Index, Detail, Cart
+from App.models import User, Paymenu, List, Index, Detail, Cart, Settlement
 from xiaomi.settings import maxage, MEDIA_ROOT
+
+
+from alipay import AliPay
+from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.generics import GenericAPIView
+# Create your views here.
+from rest_framework.response import Response
+
+from xiaomi.settings import ALI_APP_ID, APP_PRIVATE_KEY, ALIPAY_PUBLIC_KEY
 
 
 # 登录页面
@@ -201,18 +211,16 @@ def user1(request):
 def index(request):
     menus = Index.objects.all()
     title = Paymenu.objects.all()
-    print(title)
-    return render(request, 'app/index.html', {'menus': menus, 'title': title})
-    # cellphone = request.session.get('user')
-    # if not cellphone:
-    #     return render(request, "app/index.html", context={"menus": menus, 'title': title})
-    # else:
-    #     user1 = User.objects.values('username', 'portrait').filter(cellphone=cellphone).first()
-    #
-    #     username = user1['username']
-    #     photo = user1['portrait']
-    #     return render(request, "app/index.html", context={"menus": menus, 'title': title,
-    #                                                       'username': username, 'photo': photo})
+    cellphone = request.session.get('user')
+    if not cellphone:
+        return render(request, "app/index.html", context={"menus": menus, 'title': title})
+    else:
+        user1 = User.objects.values('username', 'portrait').filter(cellphone=cellphone).first()
+
+        username = user1['username']
+        photo = user1['portrait']
+        return render(request, "app/index.html", context={"menus": menus, 'title': title,
+                                                          'username': username, 'photo': photo})
 
 
 def search(request):
@@ -252,9 +260,9 @@ def shopping_cart(request):
                 add_cart = Cart(image=value.image, title=value.title, price=value.price, total_price=value.price)
                 add_cart.save()
     cart = Cart.objects.all()
-    # if len(cart) == 0:
-    #     return render(request, 'app/shopping_null.html')
-    return render(request, 'app/shopping_cart.html', {'commodity': cart})
+    if len(cart) == 0:
+        return render(request, 'app/shopping_null.html')
+    return render(request, 'app/shopping_cart.html', {'commodity': cart, 'titles': title})
 
 
 def delete(request):
@@ -270,4 +278,55 @@ def delete(request):
 
 
 def settlement(request):
-    return render(request, 'app/settlement.html')
+    sett = Cart.objects.all()
+    title = request.GET.get('tit')
+    print(title)
+    for value in sett:
+        value_title = str(value.title)
+        if title == value_title:
+            sett_id = Settlement.objects.filter(title=value.title)
+            if not len(sett_id) == 0:  # 判断列表不为空
+                sett = Settlement.objects.get(title=value.title)
+                sett.quantity += 1
+                sett.save()
+            else:
+                add_cart = Settlement(image=value.image, title=value.title, price=value.price)
+                add_cart.save()
+    settle = Settlement.objects.all()
+    return render(request, 'app/settlement.html', {'settles': settle, 'titles': title})
+
+
+@api_view(["GET", "POST"])
+def ali_buy(request):
+    order_no = "2019082102983"
+
+    alipay = AliPay(
+        appid=ALI_APP_ID,
+        app_notify_url=None,  # 默认回调url
+        app_private_key_string=APP_PRIVATE_KEY,
+        # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
+        alipay_public_key_string=ALIPAY_PUBLIC_KEY,
+        sign_type="RSA2",  # RSA 或者 RSA2
+        debug=False  # 默认False
+    )
+
+    order_string = alipay.api_alipay_trade_wap_pay(
+        out_trade_no="2019061900100",
+        total_amount=30,
+        subject="macpro",
+        return_url="http://localhost:8000/cart/index",
+        notify_url="http://localhost:8000/cart/index"  # 可选, 不填则使用默认notify url
+    )
+
+    # 支付宝网关
+    net = "https://openapi.alipaydev.com/gateway.do"
+
+    data = {
+        "msg": "ok",
+        "status": 200,
+        "data": {
+            "pay_url": net + order_string
+        }
+    }
+
+    return Response(data)

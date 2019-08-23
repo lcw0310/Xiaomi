@@ -18,5 +18,5 @@ urlpatterns = [
     url(r'^settlement$',views.settlement,name='settlement'),
     url(r'^search$', views.search, name='search'),
     url(r'^delete$', views.delete, name='delect'),
-
+    url(r'^ali_buy$',views.ali_buy, name='ali_buy'),
 ]
