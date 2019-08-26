@@ -109,13 +109,13 @@
     <div class="wrap">
         <div class="layout bugfix_ie6 dis_none">
             <div class="n-logo-area clearfix">
-                <a href="https://account.xiaomi.com/" class="fl-l">
-                    <img src="./小米帐号 -个人信息_files/n-logo.png"
-                         srcset="/static/res/fa93d30/passport/acc-2014/img/n-logo.png 1x, /static/res/fb6d739/account-static/respassport/acc-2014/img/n-logo@2x.png 2x">
+                <a href="{% url 'app:index' %}" class="fl-l">
+                    <img src="{% static 'img/小米-logo.png' %}">
+
                 </a>
 
                 <a id="logoutLink" class="fl-r logout"
-                   href="https://account.xiaomi.com/pass/logout?userId=2286948309&amp;callback=https://account.xiaomi.com">
+                   href="{% url 'app:index' %}">
                     退出
                 </a>
                 <script>
@@ -297,16 +297,16 @@
     </div>
     <p class="nf-intro"><span>小米公司版权所有-京ICP备10046444-<a class="beianlink beian-record-link" target="_blank"
                                                         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020134"><span><img
-            src="./小米帐号 -个人信息_files/ghs.png"></span>京公网安备11010802020134号</a>-京ICP证110507号</span></p>
+            src="https://shop.io.mi-img.com/static/h5/static3/media/record-icon.d0289dc0.png"></span>京公网安备11010802020134号</a>-京ICP证110507号</span></p>
 </div>
 <style type="text/css">
 
 
 </style>
-<script src="./小米帐号 -个人信息_files/jquery-1.8.3.min.js.下载"></script>
-<script src="./小米帐号 -个人信息_files/placeholder.js.下载"></script>
+<script src="/static/js/jquery-1.8.3.min.js"></script>
+<script src="/static/js/placeholder.js"></script>
 
-<script src="./小米帐号 -个人信息_files/bundle.min.js.下载" crossorigin="anonymous"></script>
+<script src="/static/js/bundle.min.js" crossorigin="anonymous"></script>
 <script>
     Sentry.init({
         dsn: 'https://bc7f8e7285204e628bcb7b7bd29b34c8@sentry.micloud.d.xiaomi.net/31'
@@ -1692,19 +1692,19 @@
         unsupportedMimeType: "不支持的MIME TYPE"
     };
 </script>
-<script src="./小米帐号 -个人信息_files/jquery-1.8.3.min.js.下载"></script>
-<script src="./小米帐号 -个人信息_files/oo-min.js.下载"></script>
-<script src="./小米帐号 -个人信息_files/l11n.js.下载"></script>
-<script src="./小米帐号 -个人信息_files/cookie.js.下载"></script>
-<script src="./小米帐号 -个人信息_files/url.js.下载"></script>
-<script src="./小米帐号 -个人信息_files/common.js.下载"></script>
-
-<script src="./小米帐号 -个人信息_files/countryCode.js.下载">
-</script>
-
-<script src="./小米帐号 -个人信息_files/2014.js.下载"></script>
-<script src="./小米帐号 -个人信息_files/placeholder.js(1).下载">
-</script>
+{#<script src="/start/js/jquery-1.8.3.min.js"></script>#}
+{#<script src="/start/js/oo-min.js"></script>#}
+{#<script src="/start/js/l11n.js"></script>#}
+{#<script src="/start/js/cookie.js"></script>#}
+{#<script src="/start/js/url.js"></script>#}
+{#<script src="/start/js/common.js"></script>#}
+{##}
+{#<script src="/start/js/countryCode.js">#}
+{#</script>#}
+{##}
+{#<script src="./小米帐号 -个人信息_files/2014.js.下载"></script>#}
+{#<script src="./小米帐号 -个人信息_files/placeholder.js(1).下载">#}
+{#</script>#}
 
 <script>
     OO(['com.mi.passport.portal.2014'], function (portal2014, O) {

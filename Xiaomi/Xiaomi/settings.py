@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mi',
+        # 'HOST': '10.0.108.73',
         'HOST': '10.0.108.73',
-        # 'HOST': '192.168.0.10',
         'PASSWORD': 'tom',
         'USER': 'root',
         'PORT': 3306,
@@ -127,6 +127,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR,'xiaomi')
 
 # PASSWORD_HASHERS = [
 #     'django.contrib.auth.hashers.PBKDF2PasswordHasher',

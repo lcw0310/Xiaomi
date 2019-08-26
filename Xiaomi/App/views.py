@@ -1,3 +1,4 @@
+from datetime import datetime
 import hashlib
 import os
 
@@ -13,7 +14,7 @@ from App.verification_code import send_sms
 from django.urls import reverse
 
 from App.forms import UserForm, PW, UserName
-from App.models import User, Paymenu, List, Index, Detail, Cart, Settlement
+from App.models import User, Paymenu, List, Index, Detail, Cart, Settlement, Platen
 from xiaomi.settings import maxage, MEDIA_ROOT
 
 from alipay import AliPay
@@ -36,7 +37,6 @@ def verify_login(request):
     user = request.POST.get('user')
     password = request.POST.get('password')
     password1 = hashlib.sha1(password.encode()).hexdigest()
-    print(password1)
     # 查询出数据库是否有这个用户名  返回的就是一个的字典
     user1 = User.objects.values('password', 'username', 'portrait', 'cellphone').filter(
         Q(cellphone=user) | Q(xiaomiid=user)).first()
@@ -47,28 +47,31 @@ def verify_login(request):
         if user1['password'] == password1:
             # 将手机号写入session用于判断用户是否登录
             request.session['user'] = user1['cellphone']
+            # 设置过期时间
+            request.session.set_expiry(maxage)
+
             # 将页面展示的信息从数据库取出来
             username = user1['username']
             photo = user1['portrait']
-            return render(request, 'app/index.html', {'username': username, 'photo': photo})
+            return redirect(reverse('app:index'), {'username': username, 'photo': photo})
 
     return render(request, 'app/login.html', {'error': '·  密码或用户名错误'})
 
 
 # 退出登录
-# def loginout(request):
-#     logout()
-#     return render(request, 'app/index')
+def login_out(request):
+    request.session.flush()
+    return redirect(reverse('app:index'))
 
 
 # 用户注册
 def user_enroll(request):
     if request.method == 'POST':
-        print("post")
+        # print("post")
         # 获取提交的表单类
         form = UserForm(request.POST)
         if form.is_valid():
-            print("a")
+            # print("a")
             # 获取电话号码
             p = request.POST.get('phone')
             # 随机生成验证码
@@ -155,7 +158,7 @@ def user(request):
             return HttpResponse("文件大小或者类型不匹配")
         # 把上传文件的内容保存到当前用户中
         # 当前用户的手机号
-        phone = request.session.get('phone')
+        phone = request.session.get('user')
         # 查出当前手机号的模型对象
         user = User.objects.filter(cellphone=phone).first()
         # user = User.objects.filter(cellphone='13754834137').first()
@@ -184,9 +187,10 @@ def user1(request):
         gender = request.POST.get('gender')
         username = request.POST.get('nickname')
         # 当前用户的手机号
-        phone = request.session.get('phone')
+        phone = request.session.get('user')
         # 查出当前手机号的模型对象
         user = User.objects.filter(cellphone=phone).first()
+        print(user)
         # user = User.objects.filter(cellphone='13754834137').first()
         # 修改username字段的内容
         user.username = username
@@ -205,6 +209,29 @@ def user1(request):
                       {'username': username, 'gender': gender1, 'photo': photo1, 'xiaomiid': xiaomiid})
 
     return render(request, 'app/user.html', {'form2': form2})
+
+
+def logistics(request, xid=1):
+    platen = Platen.objects.filter(xid=0)
+    cellphone = request.session.get('user')
+    user1 = User.objects.values('username', 'portrait').filter(cellphone=cellphone).first()
+    username = user1['username']
+    photo = user1['portrait']
+    print(3333333333333333333333333333333333)
+    if xid == 1:
+        ten = Platen.objects.filter(xid='1')
+        print(xid)
+        print(111111111111111111111111111)
+        print(ten)
+    else:
+        xid1 = xid
+        ten = Platen.objects.filter(xid=xid1)
+        print(xid)
+        print(2222222222222222222222222)
+        print(ten)
+    return render(request, 'app/logistics.html', {'platen': platen, 'ten': ten,
+                                                  'username': username, 'photo': photo
+                                                  })
 
 
 def index(request):
@@ -245,6 +272,10 @@ def detail(request):
 
 
 def shopping_cart(request):
+    var_user = request.session.get('user')
+    if var_user == None:
+        return render(request, 'app/varification_login.html')
+
     commodity = Index.objects.all()
     title = request.GET.get('tit')
     for value in commodity:
@@ -279,7 +310,6 @@ def delete(request):
 def settlement(request):
     sett = Cart.objects.all()
     title = request.GET.get('tit')
-    print(title)
     for value in sett:
         value_title = str(value.title)
         if title == value_title:
@@ -302,16 +332,19 @@ def settlement(request):
         sign_type="RSA2",  # RSA 或者 RSA2
         debug=False  # 默认False
     )
+    for pr in settle:
+        if title == pr.title:
+            total = pr.price
+            id = pr.id
+            order_string = alipay.api_alipay_trade_page_pay(
+                out_trade_no=id,
+                total_amount=total,
+                subject="macpro",
+                return_url="http:localhost:8000/app",
+                # notify_url="http://localhost:8000/cart/index"  # 可选, 不填则使用默认notify url
+            )
 
-    order_string = alipay.api_alipay_trade_page_pay(
-        out_trade_no="2019061900100",
-        total_amount=30,
-        subject="macpro",
-        return_url="http://localhost:8000/cart/index",
-        # notify_url="http://localhost:8000/cart/index"  # 可选, 不填则使用默认notify url
-    )
-
-    # 支付宝网关
-    net = "https://openapi.alipaydev.com/gateway.do?"
-    url = net + order_string
-    return render(request, 'app/settlement.html', {'settles': settle, 'titles': title, 'url': url})
+            # 支付宝网关
+            net = "https://openapi.alipaydev.com/gateway.do?"
+            url = net + order_string
+            return render(request, 'app/settlement.html', {'settles': settle, 'titles': title, 'url': url})

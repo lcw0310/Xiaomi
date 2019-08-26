@@ -24,6 +24,14 @@ class User(models.Model):
         managed = True
         db_table = 'mi_user'
 
+class Platen(models.Model):
+    id = models.AutoField(primary_key=True)
+    platename = models.CharField(max_length=300, null=True)
+    xid = models.CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'mi_platen'
+
     # @property
     # def password(self):
     #     # 把加密后的密码返回到数据库
